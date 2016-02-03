@@ -19,7 +19,7 @@ extension LayoutType {
 			fatalError("Tried to center a layout in its superlayout, but it doesn't have a superlayout.")
 		}
 		
-		centerIn(superlayout)
+		centerIn(superlayout.bounds)
 	}
 	
 	public func centerIn(layout: LayoutType) {
@@ -35,7 +35,7 @@ extension LayoutType {
 			fatalError("Tried to anchor a layout in its superlayout, but it doesn't have a superlayout.")
 		}
 		
-		anchorIn(superlayout, xAnchor: xAnchor, yAnchor: yAnchor)
+		anchorIn(superlayout.bounds, xAnchor: xAnchor, yAnchor: yAnchor)
 	}
 	
 	public func anchorIn(layout: LayoutType, xAnchor: CGFloat, yAnchor: CGFloat) {
@@ -51,7 +51,7 @@ extension LayoutType {
 			fatalError("Tried to anchor a layout to its superlayout, but it doesn't have a superlayout.")
 		}
 		
-		anchorTo(superlayout, edge: edge, parallelAnchor: parallelAnchor, perpendicularAnchor: perpendicularAnchor)
+		anchorTo(superlayout.bounds, edge: edge, parallelAnchor: parallelAnchor, perpendicularAnchor: perpendicularAnchor)
 	}
 	
 	public func anchorTo(layout: LayoutType, edge: Edge, parallelAnchor: CGFloat, perpendicularAnchor: CGFloat = 1.0) {
