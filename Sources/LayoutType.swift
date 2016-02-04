@@ -8,27 +8,31 @@ public protocol LayoutType: class {
 }
 
 extension LayoutType {
+	// MARK: Getting layout information
+	
 	public var bounds: CGRect {
 		return frame.positionedAt(x: 0.0, y: 0.0)
 	}
 	
-	// MARK: Anchoring
+	// MARK: Centering
 	
-	public func centerInSuperlayout() {
+	public func centerInSuperlayout(size size: CGSize? = nil) {
 		guard let superlayout = superlayout else {
 			fatalError("Tried to center a layout in its superlayout, but it doesn't have a superlayout.")
 		}
 		
-		centerIn(superlayout.bounds)
+		centerIn(superlayout.bounds, size: size)
 	}
 	
-	public func centerIn(layout: LayoutType) {
-		centerIn(layout.frame)
+	public func centerIn(layout: LayoutType, size: CGSize? = nil) {
+		centerIn(layout.frame, size: size)
 	}
 	
-	public func centerIn(rect: CGRect) {
-		frame = frame.size.centeredIn(rect)
+	public func centerIn(rect: CGRect, size: CGSize? = nil) {
+		frame = (size ?? frame.size).centeredIn(rect)
 	}
+	
+	// MARK: Anchoring in
 	
 	public func anchorInSuperlayout(xAnchor xAnchor: CGFloat, yAnchor: CGFloat) {
 		guard let superlayout = superlayout else {
@@ -45,6 +49,8 @@ extension LayoutType {
 	public func anchorIn(rect: CGRect, xAnchor: CGFloat, yAnchor: CGFloat) {
 		frame = frame.size.anchoredIn(rect, xAnchor: xAnchor, yAnchor: yAnchor)
 	}
+	
+	// MARK: Anchoring to
 	
 	public func anchorToSuperlayout(edge edge: Edge, parallelAnchor: CGFloat, perpendicularAnchor: CGFloat = 1.0) {
 		guard let superlayout = superlayout else {

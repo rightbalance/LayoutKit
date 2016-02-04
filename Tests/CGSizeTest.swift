@@ -1,7 +1,7 @@
 import XCTest
 @testable import LayoutKit
 
-class CGSizeTests: XCTestCase {
+class CGSizeTest: XCTestCase {
 	func testCenteredIn() {
 		let size = CGSize(width: 10.0, height: 20.0)
 		

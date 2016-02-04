@@ -1,13 +1,11 @@
-// TODO: Swift Package Manager doesn't support UIKit yet.
+import UIKit
 
-//import UIKit
-//
-//extension UIView: LayoutType {
-//	public var superlayout: Layoutable? {
-//		return superview
-//	}
-//	
-//	public var sublayouts: [Layoutable] {
-//		return subviews
-//	}
-//}
+extension UIView: LayoutType {
+	public var superlayout: LayoutType? {
+		return superview
+	}
+	
+	public var sublayouts: [LayoutType] {
+		return subviews
+	}
+}
