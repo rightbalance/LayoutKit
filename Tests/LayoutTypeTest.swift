@@ -9,7 +9,7 @@ class LayoutTypeTest: XCTestCase {
 	
 	func testCenterInSuperlayout() {
 		let (_, sublayout) = stubSuperlayout(superframe: CGRect(x: 20.0, y: 40.0, width: 120.0, height: 80.0))
-		sublayout.centerInSuperlayout(size: CGSize(width: 50.0, height: 30.0))
+		sublayout.centerInSuperlayout(width: .Amount(50.0), height: .Amount(30.0))
 		XCTAssertEqual(sublayout.frame, CGRect(x: 35.0, y: 25.0, width: 50.0, height: 30.0))
 	}
 }

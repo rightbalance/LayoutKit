@@ -16,20 +16,23 @@ extension LayoutType {
 	
 	// MARK: Centering
 	
-	public func centerInSuperlayout(size size: CGSize? = nil) {
+	public func centerInSuperlayout(width width: LayoutValue? = nil, height: LayoutValue? = nil) {
 		guard let superlayout = superlayout else {
 			fatalError("Tried to center a layout in its superlayout, but it doesn't have a superlayout.")
 		}
 		
-		centerIn(superlayout.bounds, size: size)
+		centerIn(superlayout.bounds, width: width, height: height)
 	}
 	
-	public func centerIn(layout: LayoutType, size: CGSize? = nil) {
-		centerIn(layout.frame, size: size)
+	public func centerIn(layout: LayoutType, width: LayoutValue? = nil, height: LayoutValue? = nil) {
+		centerIn(layout.frame, width: width, height: height)
 	}
 	
-	public func centerIn(rect: CGRect, size: CGSize? = nil) {
-		frame = (size ?? frame.size).centeredIn(rect)
+	public func centerIn(rect: CGRect, width: LayoutValue? = nil, height: LayoutValue? = nil) {
+		frame = CGSize(
+			width:  width?.valueRelativeTo(rect.width)   ?? frame.width,
+			height: height?.valueRelativeTo(rect.height) ?? frame.height
+		).centeredIn(rect)
 	}
 	
 	// MARK: Anchoring in

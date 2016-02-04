@@ -16,6 +16,7 @@
 		7ACE2F941C62886E00C431DF /* LayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8F1C62886E00C431DF /* LayoutType.swift */; };
 		7ACE2F951C62886E00C431DF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F901C62886E00C431DF /* UIView.swift */; };
 		7ACE2FC41C62D66A00C431DF /* LayoutTypeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2FC21C62D62500C431DF /* LayoutTypeTest.swift */; };
+		7ACE2FC61C62DCAA00C431DF /* LayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2FC51C62DCAA00C431DF /* LayoutValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		7ACE2F8F1C62886E00C431DF /* LayoutType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutType.swift; sourceTree = "<group>"; };
 		7ACE2F901C62886E00C431DF /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		7ACE2FC21C62D62500C431DF /* LayoutTypeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutTypeTest.swift; sourceTree = "<group>"; };
+		7ACE2FC51C62DCAA00C431DF /* LayoutValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				7A1971A41C62810C008A075B /* Info.plist */,
 				7A1971A21C62810C008A075B /* LayoutKit.h */,
 				7ACE2F8F1C62886E00C431DF /* LayoutType.swift */,
+				7ACE2FC51C62DCAA00C431DF /* LayoutValue.swift */,
 				7ACE2F901C62886E00C431DF /* UIView.swift */,
 			);
 			path = Sources;
@@ -217,6 +220,7 @@
 				7ACE2F911C62886E00C431DF /* CGRect.swift in Sources */,
 				7ACE2F931C62886E00C431DF /* Edge.swift in Sources */,
 				7ACE2F941C62886E00C431DF /* LayoutType.swift in Sources */,
+				7ACE2FC61C62DCAA00C431DF /* LayoutValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
