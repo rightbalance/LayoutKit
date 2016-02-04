@@ -12,11 +12,13 @@
 		7A1971AF1C62810C008A075B /* CGSizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1971AE1C62810C008A075B /* CGSizeTest.swift */; };
 		7ACE2F911C62886E00C431DF /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8C1C62886E00C431DF /* CGRect.swift */; };
 		7ACE2F921C62886E00C431DF /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8D1C62886E00C431DF /* CGSize.swift */; };
-		7ACE2F931C62886E00C431DF /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8E1C62886E00C431DF /* Edge.swift */; };
+		7ACE2F931C62886E00C431DF /* LayoutEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8E1C62886E00C431DF /* LayoutEdge.swift */; };
 		7ACE2F941C62886E00C431DF /* LayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8F1C62886E00C431DF /* LayoutType.swift */; };
 		7ACE2F951C62886E00C431DF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F901C62886E00C431DF /* UIView.swift */; };
 		7ACE2FC41C62D66A00C431DF /* LayoutTypeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2FC21C62D62500C431DF /* LayoutTypeTest.swift */; };
 		7ACE2FC61C62DCAA00C431DF /* LayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2FC51C62DCAA00C431DF /* LayoutValue.swift */; };
+		7AE478901C62EDCD0067B086 /* LayoutAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4788F1C62EDCD0067B086 /* LayoutAxis.swift */; };
+		7AE478921C62EEC20067B086 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE478911C62EEC20067B086 /* CGPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,11 +40,13 @@
 		7A1971B01C62810C008A075B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ACE2F8C1C62886E00C431DF /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		7ACE2F8D1C62886E00C431DF /* CGSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
-		7ACE2F8E1C62886E00C431DF /* Edge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
+		7ACE2F8E1C62886E00C431DF /* LayoutEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEdge.swift; sourceTree = "<group>"; };
 		7ACE2F8F1C62886E00C431DF /* LayoutType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutType.swift; sourceTree = "<group>"; };
 		7ACE2F901C62886E00C431DF /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		7ACE2FC21C62D62500C431DF /* LayoutTypeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutTypeTest.swift; sourceTree = "<group>"; };
 		7ACE2FC51C62DCAA00C431DF /* LayoutValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutValue.swift; sourceTree = "<group>"; };
+		7AE4788F1C62EDCD0067B086 /* LayoutAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutAxis.swift; sourceTree = "<group>"; };
+		7AE478911C62EEC20067B086 /* CGPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +89,12 @@
 		7A1971A11C62810C008A075B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7AE478911C62EEC20067B086 /* CGPoint.swift */,
 				7ACE2F8C1C62886E00C431DF /* CGRect.swift */,
 				7ACE2F8D1C62886E00C431DF /* CGSize.swift */,
-				7ACE2F8E1C62886E00C431DF /* Edge.swift */,
 				7A1971A41C62810C008A075B /* Info.plist */,
+				7AE4788F1C62EDCD0067B086 /* LayoutAxis.swift */,
+				7ACE2F8E1C62886E00C431DF /* LayoutEdge.swift */,
 				7A1971A21C62810C008A075B /* LayoutKit.h */,
 				7ACE2F8F1C62886E00C431DF /* LayoutType.swift */,
 				7ACE2FC51C62DCAA00C431DF /* LayoutValue.swift */,
@@ -218,8 +224,10 @@
 				7ACE2F951C62886E00C431DF /* UIView.swift in Sources */,
 				7ACE2F921C62886E00C431DF /* CGSize.swift in Sources */,
 				7ACE2F911C62886E00C431DF /* CGRect.swift in Sources */,
-				7ACE2F931C62886E00C431DF /* Edge.swift in Sources */,
+				7ACE2F931C62886E00C431DF /* LayoutEdge.swift in Sources */,
+				7AE478921C62EEC20067B086 /* CGPoint.swift in Sources */,
 				7ACE2F941C62886E00C431DF /* LayoutType.swift in Sources */,
+				7AE478901C62EDCD0067B086 /* LayoutAxis.swift in Sources */,
 				7ACE2FC61C62DCAA00C431DF /* LayoutValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

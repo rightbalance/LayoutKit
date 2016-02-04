@@ -21,7 +21,7 @@ extension CGSize {
 		return anchoredRect
 	}
 	
-	public func anchoredTo(rect: CGRect, edge: Edge, parallelAnchor: CGFloat, perpendicularAnchor: CGFloat = 1.0) -> CGRect {
+	public func anchoredTo(rect: CGRect, edge: LayoutEdge, parallelAnchor: CGFloat, perpendicularAnchor: CGFloat = 1.0) -> CGRect {
 		var anchoredRect  = rect
 		anchoredRect.size = self
 		
@@ -51,6 +51,13 @@ extension CGSize {
 	
 	public var maxDimension: CGFloat {
 		return max(width, height)
+	}
+	
+	public func lengthOn(axis: LayoutAxis) -> CGFloat {
+		switch axis {
+			case .Horizontal: return width
+			case .Vertical:   return height
+		}
 	}
 }
 

@@ -37,37 +37,57 @@ extension LayoutType {
 	
 	// MARK: Anchoring in
 	
-	public func anchorInSuperlayout(xAnchor xAnchor: CGFloat, yAnchor: CGFloat) {
+	public func anchorInSuperlayout(x x: LayoutValue, y: LayoutValue, width: LayoutValue? = nil, height: LayoutValue? = nil) {
 		guard let superlayout = superlayout else {
 			fatalError("Tried to anchor a layout in its superlayout, but it doesn't have a superlayout.")
 		}
 		
-		anchorIn(superlayout.bounds, xAnchor: xAnchor, yAnchor: yAnchor)
+		anchorIn(superlayout.bounds, x: x, y: y, width: width, height: height)
 	}
 	
-	public func anchorIn(layout: LayoutType, xAnchor: CGFloat, yAnchor: CGFloat) {
-		anchorIn(layout.frame, xAnchor: xAnchor, yAnchor: yAnchor)
+	public func anchorIn(layout: LayoutType, x: LayoutValue, y: LayoutValue, width: LayoutValue? = nil, height: LayoutValue? = nil) {
+		anchorIn(layout.frame, x: x, y: y, width: width, height: height)
 	}
 	
-	public func anchorIn(rect: CGRect, xAnchor: CGFloat, yAnchor: CGFloat) {
-		frame = frame.size.anchoredIn(rect, xAnchor: xAnchor, yAnchor: yAnchor)
+	public func anchorIn(rect: CGRect, x: LayoutValue, y: LayoutValue, width: LayoutValue? = nil, height: LayoutValue? = nil) {
+		frame = CGSize(
+			width:  width?.valueRelativeTo(rect.width)   ?? frame.width,
+			height: height?.valueRelativeTo(rect.height) ?? frame.height
+		).anchoredIn(rect, xAnchor: x.valueRelativeTo(rect.width), yAnchor: y.valueRelativeTo(rect.height))
 	}
 	
 	// MARK: Anchoring to
 	
-	public func anchorToSuperlayout(edge edge: Edge, parallelAnchor: CGFloat, perpendicularAnchor: CGFloat = 1.0) {
+	public func anchorToSuperlayout(edge edge: LayoutEdge, parallelAnchor: LayoutValue, perpendicularAnchor: LayoutValue = .Ratio(1.0), width: LayoutValue? = nil, height: LayoutValue? = nil) {
 		guard let superlayout = superlayout else {
 			fatalError("Tried to anchor a layout to its superlayout, but it doesn't have a superlayout.")
 		}
 		
-		anchorTo(superlayout.bounds, edge: edge, parallelAnchor: parallelAnchor, perpendicularAnchor: perpendicularAnchor)
+		anchorTo(superlayout.bounds, edge: edge, parallelAnchor: parallelAnchor, perpendicularAnchor: perpendicularAnchor, width: width, height: height)
 	}
 	
-	public func anchorTo(layout: LayoutType, edge: Edge, parallelAnchor: CGFloat, perpendicularAnchor: CGFloat = 1.0) {
-		anchorTo(layout.frame, edge: edge, parallelAnchor: parallelAnchor, perpendicularAnchor: perpendicularAnchor)
+	public func anchorTo(layout: LayoutType, edge: LayoutEdge, parallelAnchor: LayoutValue, perpendicularAnchor: LayoutValue = .Ratio(1.0), width: LayoutValue? = nil, height: LayoutValue? = nil) {
+		anchorTo(layout.frame, edge: edge, parallelAnchor: parallelAnchor, perpendicularAnchor: perpendicularAnchor, width: width, height: height)
 	}
 	
-	public func anchorTo(rect: CGRect, edge: Edge, parallelAnchor: CGFloat, perpendicularAnchor: CGFloat = 1.0) {
-		frame = frame.size.anchoredTo(rect, edge: edge, parallelAnchor: parallelAnchor, perpendicularAnchor: perpendicularAnchor)
+	public func anchorTo(rect: CGRect, edge: LayoutEdge, parallelAnchor: LayoutValue, perpendicularAnchor: LayoutValue = .Ratio(1.0), width: LayoutValue? = nil, height: LayoutValue? = nil) {
+		let size = CGSize(
+			width:  width?.valueRelativeTo(rect.width)   ?? frame.width,
+			height: height?.valueRelativeTo(rect.height) ?? frame.height
+		)
+		
+		switch edge.parallelAxis {
+			case .Horizontal: frame = CGRect(
+				x:    rect.positionAt(edge, extrusion: perpendicularAnchor.valueRelativeTo(size.lengthOn(edge.parallelAxis))),
+				y:    rect.y + parallelAnchor.valueRelativeTo(rect.lengthOn(edge.perpendicularAxis)),
+				size: size
+			)
+			
+			case .Vertical: frame = CGRect(
+				x:    rect.x + parallelAnchor.valueRelativeTo(rect.lengthOn(edge.perpendicularAxis)),
+				y:    rect.positionAt(edge, extrusion: perpendicularAnchor.valueRelativeTo(size.lengthOn(edge.parallelAxis))),
+				size: size
+			)
+		}
 	}
 }
