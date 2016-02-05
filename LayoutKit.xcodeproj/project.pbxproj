@@ -10,6 +10,7 @@
 		7A1971A31C62810C008A075B /* LayoutKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A1971A21C62810C008A075B /* LayoutKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A1971AA1C62810C008A075B /* LayoutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A19719F1C62810C008A075B /* LayoutKit.framework */; };
 		7A1971AF1C62810C008A075B /* CGSizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1971AE1C62810C008A075B /* CGSizeTest.swift */; };
+		7A47DFB61C65378700D7E9BF /* LayoutInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47DFB51C65378700D7E9BF /* LayoutInsets.swift */; };
 		7ACE2F911C62886E00C431DF /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8C1C62886E00C431DF /* CGRect.swift */; };
 		7ACE2F921C62886E00C431DF /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8D1C62886E00C431DF /* CGSize.swift */; };
 		7ACE2F931C62886E00C431DF /* LayoutEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8E1C62886E00C431DF /* LayoutEdge.swift */; };
@@ -38,6 +39,7 @@
 		7A1971A91C62810C008A075B /* LayoutKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LayoutKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1971AE1C62810C008A075B /* CGSizeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeTest.swift; sourceTree = "<group>"; };
 		7A1971B01C62810C008A075B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A47DFB51C65378700D7E9BF /* LayoutInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutInsets.swift; sourceTree = "<group>"; };
 		7ACE2F8C1C62886E00C431DF /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		7ACE2F8D1C62886E00C431DF /* CGSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 		7ACE2F8E1C62886E00C431DF /* LayoutEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEdge.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				7A1971A41C62810C008A075B /* Info.plist */,
 				7AE4788F1C62EDCD0067B086 /* LayoutAxis.swift */,
 				7ACE2F8E1C62886E00C431DF /* LayoutEdge.swift */,
+				7A47DFB51C65378700D7E9BF /* LayoutInsets.swift */,
 				7A1971A21C62810C008A075B /* LayoutKit.h */,
 				7ACE2F8F1C62886E00C431DF /* LayoutType.swift */,
 				7ACE2FC51C62DCAA00C431DF /* LayoutValue.swift */,
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ACE2F951C62886E00C431DF /* UIView.swift in Sources */,
+				7A47DFB61C65378700D7E9BF /* LayoutInsets.swift in Sources */,
 				7ACE2F921C62886E00C431DF /* CGSize.swift in Sources */,
 				7ACE2F911C62886E00C431DF /* CGRect.swift in Sources */,
 				7ACE2F931C62886E00C431DF /* LayoutEdge.swift in Sources */,
