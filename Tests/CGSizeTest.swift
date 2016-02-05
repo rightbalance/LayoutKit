@@ -25,27 +25,27 @@ class CGSizeTest: XCTestCase {
 		let size = CGSize(width: 20.0, height: 10.0)
 		
 		XCTAssertEqual(
-			size.anchoredIn(CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0), xAnchor: 0.0, yAnchor: 0.0),
+			size.anchoredIn(CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0), x: .Ratio(0.0), y: .Ratio(0.0)),
 			CGRect(x: 0.0, y: 0.0, width: 20.0, height: 10.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredIn(CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0), xAnchor: 0.5, yAnchor: 0.5),
+			size.anchoredIn(CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0), x: .Ratio(0.5), y: .Ratio(0.5)),
 			CGRect(x: 5.0, y: 10.0, width: 20.0, height: 10.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredIn(CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0), xAnchor: 1.0, yAnchor: 1.0),
+			size.anchoredIn(CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0), x: .Ratio(1.0), y: .Ratio(1.0)),
 			CGRect(x: 10.0, y: 20.0, width: 20.0, height: 10.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredIn(CGRect(x: -50.0, y: 50.0, width: 40.0, height: 40.0), xAnchor: 0.0, yAnchor: 1.0),
+			size.anchoredIn(CGRect(x: -50.0, y: 50.0, width: 40.0, height: 40.0), x: .Ratio(0.0), y: .Ratio(1.0)),
 			CGRect(x: -50.0, y: 80.0, width: 20.0, height: 10.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredIn(CGRect(x: -50.0, y: 50.0, width: 40.0, height: 40.0), xAnchor: 1.0, yAnchor: 0.5),
+			size.anchoredIn(CGRect(x: -50.0, y: 50.0, width: 40.0, height: 40.0), x: .Ratio(1.0), y: .Ratio(0.5)),
 			CGRect(x: -30.0, y: 65.0, width: 20.0, height: 10.0)
 		)
 	}

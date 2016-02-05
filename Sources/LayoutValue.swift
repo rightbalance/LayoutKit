@@ -12,6 +12,14 @@ public enum LayoutValue {
 			case .OffsetRatio (let offset, let ratio): return ratio * relativeValue + offset
 		}
 	}
+	
+	public func positionRelativeTo(outerLength outerLength: CGFloat, innerLength: CGFloat) -> CGFloat {
+		switch self {
+			case .Amount      (let amount):            return amount
+			case .Ratio       (let ratio):             return (outerLength - innerLength) * ratio
+			case .OffsetRatio (let offset, let ratio): return (outerLength - innerLength) * ratio + offset
+		}
+	}
 }
 
 public func +(a: LayoutValue, b: LayoutValue) -> LayoutValue {

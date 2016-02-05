@@ -10,14 +10,14 @@ extension CGSize {
 	// MARK: Anchoring
 	
 	public func centeredIn(rect: CGRect) -> CGRect {
-		return anchoredIn(rect, xAnchor: 0.5, yAnchor: 0.5)
+		return anchoredIn(rect, x: .Ratio(0.5), y: .Ratio(0.5))
 	}
 	
-	public func anchoredIn(rect: CGRect, xAnchor: CGFloat, yAnchor: CGFloat) -> CGRect {
+	public func anchoredIn(rect: CGRect, x: LayoutValue, y: LayoutValue) -> CGRect {
 		var anchoredRect       = rect
 		anchoredRect.size      = self
-		anchoredRect.origin.x += (rect.width  - width)  * xAnchor
-		anchoredRect.origin.y += (rect.height - height) * yAnchor
+		anchoredRect.origin.x += x.positionRelativeTo(outerLength: rect.width,  innerLength: width)
+		anchoredRect.origin.y += y.positionRelativeTo(outerLength: rect.height, innerLength: height)
 		return anchoredRect
 	}
 	

@@ -24,10 +24,6 @@ extension LayoutType {
 		centerIn(superlayout.bounds, width: width, height: height)
 	}
 	
-	public func centerIn(layout: LayoutType, width: LayoutValue? = nil, height: LayoutValue? = nil) {
-		centerIn(layout.frame, width: width, height: height)
-	}
-	
 	public func centerIn(rect: CGRect, width: LayoutValue? = nil, height: LayoutValue? = nil) {
 		frame = CGSize(
 			width:  width?.valueRelativeTo(rect.width)   ?? frame.width,
@@ -45,15 +41,11 @@ extension LayoutType {
 		anchorIn(superlayout.bounds, x: x, y: y, width: width, height: height)
 	}
 	
-	public func anchorIn(layout: LayoutType, x: LayoutValue, y: LayoutValue, width: LayoutValue? = nil, height: LayoutValue? = nil) {
-		anchorIn(layout.frame, x: x, y: y, width: width, height: height)
-	}
-	
 	public func anchorIn(rect: CGRect, x: LayoutValue, y: LayoutValue, width: LayoutValue? = nil, height: LayoutValue? = nil) {
 		frame = CGSize(
 			width:  width?.valueRelativeTo(rect.width)   ?? frame.width,
 			height: height?.valueRelativeTo(rect.height) ?? frame.height
-		).anchoredIn(rect, xAnchor: x.valueRelativeTo(rect.width), yAnchor: y.valueRelativeTo(rect.height))
+		).anchoredIn(rect, x: x, y: y)
 	}
 	
 	// MARK: Anchoring to
@@ -64,10 +56,6 @@ extension LayoutType {
 		}
 		
 		anchorTo(superlayout.bounds, edge: edge, parallelAnchor: parallelAnchor, perpendicularAnchor: perpendicularAnchor, width: width, height: height)
-	}
-	
-	public func anchorTo(layout: LayoutType, edge: LayoutEdge, parallelAnchor: LayoutValue, perpendicularAnchor: LayoutValue = .Ratio(1.0), width: LayoutValue? = nil, height: LayoutValue? = nil) {
-		anchorTo(layout.frame, edge: edge, parallelAnchor: parallelAnchor, perpendicularAnchor: perpendicularAnchor, width: width, height: height)
 	}
 	
 	public func anchorTo(rect: CGRect, edge: LayoutEdge, parallelAnchor: LayoutValue, perpendicularAnchor: LayoutValue = .Ratio(1.0), width: LayoutValue? = nil, height: LayoutValue? = nil) {
