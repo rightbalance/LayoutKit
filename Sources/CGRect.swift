@@ -66,12 +66,12 @@ extension CGRect {
 		size.setLength(length, onAxis: axis)
 	}
 	
-	public func positionAt(edge: LayoutEdge, extrusion: CGFloat = 0.0) -> CGFloat {
+	public func positionAt(edge: LayoutEdge, inset: CGFloat = 0.0) -> CGFloat {
 		switch edge {
-			case .Top:    return minY - extrusion
-			case .Bottom: return maxY + extrusion
-			case .Left:   return minX - extrusion
-			case .Right:  return maxX + extrusion
+			case .Top:    return minY + inset
+			case .Bottom: return maxY - inset
+			case .Left:   return minX + inset
+			case .Right:  return maxX - inset
 		}
 	}
 }
