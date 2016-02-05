@@ -14,30 +14,32 @@ extension CGSize {
 	}
 	
 	public func anchoredIn(rect: CGRect, x: LayoutValue, y: LayoutValue) -> CGRect {
-		var anchoredRect       = rect
-		anchoredRect.size      = self
-		anchoredRect.origin.x += x.positionRelativeTo(outerLength: rect.width,  innerLength: width)
-		anchoredRect.origin.y += y.positionRelativeTo(outerLength: rect.height, innerLength: height)
+		var anchoredRect  = rect
+		anchoredRect.size = self
+		anchoredRect.x   += x.positionRelativeTo(outerLength: rect.width,  innerLength: width)
+		anchoredRect.y   += y.positionRelativeTo(outerLength: rect.height, innerLength: height)
 		return anchoredRect
 	}
 	
-	public func anchoredTo(rect: CGRect, edge: LayoutEdge, parallelAnchor: CGFloat, perpendicularAnchor: CGFloat = 1.0) -> CGRect {
+	public func anchoredTo(rect: CGRect, edge: LayoutEdge, parallelAnchor: LayoutValue, perpendicularAnchor: LayoutValue = .Ratio(0.0)) -> CGRect {
 		var anchoredRect  = rect
 		anchoredRect.size = self
 		
+		let parallelAxis = edge.parallelAxis
+		
+		anchoredRect.setPosition(
+			anchoredRect.positionOn(parallelAxis) + parallelAnchor.positionRelativeTo(
+				outerLength: rect.lengthOn(parallelAxis),
+				innerLength: lengthOn(parallelAxis)
+			),
+			onAxis: parallelAxis
+		)
+		
 		switch edge {
-			case .Top:
-				anchoredRect.origin.x += (rect.width - width) * parallelAnchor
-				anchoredRect.origin.y  = rect.minY - height * perpendicularAnchor
-			case .Bottom:
-				anchoredRect.origin.x += (rect.width - width) * parallelAnchor
-				anchoredRect.origin.y  = rect.maxY + height * (perpendicularAnchor - 1.0)
-			case .Left:
-				anchoredRect.origin.x  = rect.minX - width * perpendicularAnchor
-				anchoredRect.origin.y += (rect.height - height) * parallelAnchor
-			case .Right:
-				anchoredRect.origin.x  = rect.maxX + width * (perpendicularAnchor - 1.0)
-				anchoredRect.origin.y += (rect.height - height) * parallelAnchor
+			case .Top:    anchoredRect.y = rect.minY - height - perpendicularAnchor.valueRelativeTo(height)
+			case .Bottom: anchoredRect.y = rect.maxY          + perpendicularAnchor.valueRelativeTo(height)
+			case .Left:   anchoredRect.x = rect.minX - width  - perpendicularAnchor.valueRelativeTo(width)
+			case .Right:  anchoredRect.x = rect.maxX          + perpendicularAnchor.valueRelativeTo(width)
 		}
 		
 		return anchoredRect
@@ -57,6 +59,13 @@ extension CGSize {
 		switch axis {
 			case .Horizontal: return width
 			case .Vertical:   return height
+		}
+	}
+	
+	public mutating func setLength(length: CGFloat, onAxis axis: LayoutAxis) {
+		switch axis {
+			case .Horizontal: width  = length
+			case .Vertical:   height = length
 		}
 	}
 }

@@ -57,69 +57,69 @@ class CGSizeTest: XCTestCase {
 		// Top:
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Top, parallelAnchor: 0.0, perpendicularAnchor: 1.0),
+			size.anchoredTo(rect, edge: .Top, parallelAnchor: .Ratio(0.0), perpendicularAnchor: .Ratio(0.0)),
 			CGRect(x: 10.0, y: -50.0, width: 30.0, height: 40.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Top, parallelAnchor: 0.5, perpendicularAnchor: 0.5),
+			size.anchoredTo(rect, edge: .Top, parallelAnchor: .Ratio(0.5), perpendicularAnchor: .Ratio(-0.5)),
 			CGRect(x: 20.0, y: -30.0, width: 30.0, height: 40.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Top, parallelAnchor: 1.0, perpendicularAnchor: 0.0),
-			CGRect(x: 30.0, y: -10.0, width: 30.0, height: 40.0)
+			size.anchoredTo(rect, edge: .Top, parallelAnchor: .Ratio(1.0), perpendicularAnchor: .Ratio(1.0)),
+			CGRect(x: 30.0, y: -90.0, width: 30.0, height: 40.0)
 		)
 		
 		// Bottom:
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Bottom, parallelAnchor: 0.0, perpendicularAnchor: 1.0),
+			size.anchoredTo(rect, edge: .Bottom, parallelAnchor: .Ratio(0.0), perpendicularAnchor: .Ratio(0.0)),
 			CGRect(x: 10.0, y: 70.0, width: 30.0, height: 40.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Bottom, parallelAnchor: 0.5, perpendicularAnchor: 0.5),
+			size.anchoredTo(rect, edge: .Bottom, parallelAnchor: .Ratio(0.5), perpendicularAnchor: .Ratio(-0.5)),
 			CGRect(x: 20.0, y: 50.0, width: 30.0, height: 40.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Bottom, parallelAnchor: 1.0, perpendicularAnchor: 0.0),
-			CGRect(x: 30.0, y: 30.0, width: 30.0, height: 40.0)
+			size.anchoredTo(rect, edge: .Bottom, parallelAnchor: .Ratio(1.0), perpendicularAnchor: .Ratio(1.0)),
+			CGRect(x: 30.0, y: 110.0, width: 30.0, height: 40.0)
 		)
 		
 		// Left:
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Left, parallelAnchor: 0.0, perpendicularAnchor: 1.0),
+			size.anchoredTo(rect, edge: .Left, parallelAnchor: .Ratio(0.0), perpendicularAnchor: .Ratio(0.0)),
 			CGRect(x: -20.0, y: -10.0, width: 30.0, height: 40.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Left, parallelAnchor: 0.5, perpendicularAnchor: 0.5),
+			size.anchoredTo(rect, edge: .Left, parallelAnchor: .Ratio(0.5), perpendicularAnchor: .Ratio(-0.5)),
 			CGRect(x: -5.0, y: 10.0, width: 30.0, height: 40.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Left, parallelAnchor: 1.0, perpendicularAnchor: 0.0),
-			CGRect(x: 10.0, y: 30.0, width: 30.0, height: 40.0)
+			size.anchoredTo(rect, edge: .Left, parallelAnchor: .Ratio(1.0), perpendicularAnchor: .Ratio(1.0)),
+			CGRect(x: -50.0, y: 30.0, width: 30.0, height: 40.0)
 		)
 		
 		// Right:
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Right, parallelAnchor: 0.0, perpendicularAnchor: 1.0),
+			size.anchoredTo(rect, edge: .Right, parallelAnchor: .Ratio(0.0), perpendicularAnchor: .Ratio(0.0)),
 			CGRect(x: 60.0, y: -10.0, width: 30.0, height: 40.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Right, parallelAnchor: 0.5, perpendicularAnchor: 0.5),
+			size.anchoredTo(rect, edge: .Right, parallelAnchor: .Ratio(0.5), perpendicularAnchor: .Ratio(-0.5)),
 			CGRect(x: 45.0, y: 10.0, width: 30.0, height: 40.0)
 		)
 		
 		XCTAssertEqual(
-			size.anchoredTo(rect, edge: .Right, parallelAnchor: 1.0, perpendicularAnchor: 0.0),
-			CGRect(x: 30.0, y: 30.0, width: 30.0, height: 40.0)
+			size.anchoredTo(rect, edge: .Right, parallelAnchor: .Ratio(1.0), perpendicularAnchor: .Ratio(1.0)),
+			CGRect(x: 90.0, y: 30.0, width: 30.0, height: 40.0)
 		)
 	}
 }

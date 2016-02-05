@@ -54,8 +54,16 @@ extension CGRect {
 		return origin.positionOn(axis)
 	}
 	
+	public mutating func setPosition(position: CGFloat, onAxis axis: LayoutAxis) {
+		origin.setPosition(position, onAxis: axis)
+	}
+	
 	public func lengthOn(axis: LayoutAxis) -> CGFloat {
 		return size.lengthOn(axis)
+	}
+	
+	public mutating func setLength(length: CGFloat, onAxis axis: LayoutAxis) {
+		size.setLength(length, onAxis: axis)
 	}
 	
 	public func positionAt(edge: LayoutEdge, extrusion: CGFloat = 0.0) -> CGFloat {

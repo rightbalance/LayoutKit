@@ -9,4 +9,11 @@ extension CGPoint {
 			case .Vertical:   return y
 		}
 	}
+	
+	public mutating func setPosition(position: CGFloat, onAxis axis: LayoutAxis) {
+		switch axis {
+			case .Horizontal: x = position
+			case .Vertical:   y = position
+		}
+	}
 }

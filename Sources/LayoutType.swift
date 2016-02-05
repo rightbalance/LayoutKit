@@ -50,7 +50,7 @@ extension LayoutType {
 	
 	// MARK: Anchoring to
 	
-	public func anchorToSuperlayout(edge edge: LayoutEdge, parallelAnchor: LayoutValue, perpendicularAnchor: LayoutValue = .Ratio(1.0), width: LayoutValue? = nil, height: LayoutValue? = nil) {
+	public func anchorToSuperlayout(edge edge: LayoutEdge, parallelAnchor: LayoutValue, perpendicularAnchor: LayoutValue = .Ratio(0.0), width: LayoutValue? = nil, height: LayoutValue? = nil) {
 		guard let superlayout = superlayout else {
 			fatalError("Tried to anchor a layout to its superlayout, but it doesn't have a superlayout.")
 		}
@@ -58,24 +58,10 @@ extension LayoutType {
 		anchorTo(superlayout.bounds, edge: edge, parallelAnchor: parallelAnchor, perpendicularAnchor: perpendicularAnchor, width: width, height: height)
 	}
 	
-	public func anchorTo(rect: CGRect, edge: LayoutEdge, parallelAnchor: LayoutValue, perpendicularAnchor: LayoutValue = .Ratio(1.0), width: LayoutValue? = nil, height: LayoutValue? = nil) {
-		let size = CGSize(
+	public func anchorTo(rect: CGRect, edge: LayoutEdge, parallelAnchor: LayoutValue, perpendicularAnchor: LayoutValue = .Ratio(0.0), width: LayoutValue? = nil, height: LayoutValue? = nil) {
+		frame = CGSize(
 			width:  width?.valueRelativeTo(rect.width)   ?? frame.width,
 			height: height?.valueRelativeTo(rect.height) ?? frame.height
-		)
-		
-		switch edge.parallelAxis {
-			case .Horizontal: frame = CGRect(
-				x:    rect.positionAt(edge, extrusion: perpendicularAnchor.valueRelativeTo(size.lengthOn(edge.parallelAxis))),
-				y:    rect.y + parallelAnchor.valueRelativeTo(rect.lengthOn(edge.perpendicularAxis)),
-				size: size
-			)
-			
-			case .Vertical: frame = CGRect(
-				x:    rect.x + parallelAnchor.valueRelativeTo(rect.lengthOn(edge.perpendicularAxis)),
-				y:    rect.positionAt(edge, extrusion: perpendicularAnchor.valueRelativeTo(size.lengthOn(edge.parallelAxis))),
-				size: size
-			)
-		}
+		).anchoredTo(rect, edge: edge, parallelAnchor: parallelAnchor, perpendicularAnchor: perpendicularAnchor)
 	}
 }
