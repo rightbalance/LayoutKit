@@ -3,16 +3,19 @@ import CoreGraphics
 extension CGSize {
 	// MARK: Initializing
 	
-	public init(equalDimension: CGFloat) {
-		self.init(width: equalDimension, height: equalDimension)
+	/// Initializes a size with equal values for width and height.
+	public init(equalLength: CGFloat) {
+		self.init(width: equalLength, height: equalLength)
 	}
 	
 	// MARK: Anchoring
 	
+	/// Returns a rect with the size of the receiver, centered in the given rect.
 	public func centeredIn(rect: CGRect) -> CGRect {
 		return anchoredIn(rect, x: .Ratio(0.5), y: .Ratio(0.5))
 	}
 	
+	/// Returns a rect with the size of the receiver anchored at the given position inside the rect.
 	public func anchoredIn(rect: CGRect, x: LayoutValue, y: LayoutValue) -> CGRect {
 		var anchoredRect  = rect
 		anchoredRect.size = self
@@ -21,6 +24,7 @@ extension CGSize {
 		return anchoredRect
 	}
 	
+	/// Returns a rect with the size of the receiver anchored to an outer edge of the given rect.
 	public func anchoredTo(rect: CGRect, edge: LayoutEdge, parallelAnchor: LayoutValue, perpendicularAnchor: LayoutValue = .Ratio(0.0)) -> CGRect {
 		var anchoredRect  = rect
 		anchoredRect.size = self
@@ -42,18 +46,19 @@ extension CGSize {
 		return anchoredRect
 	}
 	
-	// MARK: Getting information about the size
+	// MARK: Accessing size properties
 	
-	public var minDimension: CGFloat {
+	/// The smaller of the size's width and height.
+	public var minLength: CGFloat {
 		return min(width, height)
 	}
 	
-	public var maxDimension: CGFloat {
+	/// The larger of the size's width and height.
+	public var maxLength: CGFloat {
 		return max(width, height)
 	}
 	
 	/// Provides subscripting access to the sizes values on the given axis.
-	
 	public subscript(axis: LayoutAxis) -> CGFloat {
 		get {
 			switch axis {

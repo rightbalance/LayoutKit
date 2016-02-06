@@ -13,26 +13,31 @@ extension CGRect {
 	
 	// MARK: Accessing properties
 	
+	/// The rect's x value.
 	public var x: CGFloat {
 		get { return origin.x     }
 		set { origin.x = newValue }
 	}
 	
+	/// The rect's y value.
 	public var y: CGFloat {
 		get { return origin.y     }
 		set { origin.y = newValue }
 	}
 	
+	/// The rect's width value.
 	public var width: CGFloat {
 		get { return size.width     }
 		set { size.width = newValue }
 	}
 	
+	/// The rect's height value.
 	public var height: CGFloat {
 		get { return size.height     }
 		set { size.height = newValue }
 	}
 	
+	/// The rect's center point.
 	public var center: CGPoint {
 		get { return CGPoint(x: midX, y: midY)                                        }
 		set { origin = CGPoint(x: center.x - width / 2.0, y: center.y - height / 2.0) }

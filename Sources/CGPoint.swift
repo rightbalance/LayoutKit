@@ -1,7 +1,7 @@
 import CoreGraphics
 
 extension CGPoint {
-	// MARK: Getting information about the point
+	// MARK: Accessing point properties
 	
 	/// Provides subscripting access to the point's values on the given axis.
 	public subscript(axis: LayoutAxis) -> CGFloat {
