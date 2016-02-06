@@ -42,6 +42,29 @@ class LayoutTypeTest: XCTestCase {
 		layout.anchorTo(CGRect(x: 50.0, y: 30.0, width: 10.0, height: 20.0), edge: .Left, parallelAnchor: .Ratio(0.0), perpendicularAnchor: .Ratio(0.25), width: .Ratio(0.6), height: .Ratio(2.0))
 		XCTAssertEqual(layout.frame, CGRect(x: 42.5, y: 30.0, width: 6.0, height: 40.0))
 	}
+	
+	func testDistributeInSuperlayout() {
+		let superlayout = stubSublayouts(sublayoutCount: 3, superframe: CGRect(x: 20.0, y: 30.0, width: 100.0, height: 50.0))
+		let sublayouts  = superlayout.sublayouts
+		
+		superlayout.sublayouts.distributeInSuperlayout(axis: .Horizontal, spacing: 4.0, margin: LayoutInsets(top: 5.0, left: 6.0, bottom: 7.0, right: 8.0))
+		
+		XCTAssertEqual(sublayouts[0].frame, CGRect(x:  6.0, y: 5.0, width: 26.0, height: 38.0))
+		XCTAssertEqual(sublayouts[1].frame, CGRect(x: 36.0, y: 5.0, width: 26.0, height: 38.0))
+		XCTAssertEqual(sublayouts[2].frame, CGRect(x: 66.0, y: 5.0, width: 26.0, height: 38.0))
+	}
+	
+	func testDistributeInRect() {
+		let layouts = [StubLayout(), StubLayout(), StubLayout(), StubLayout()] as [LayoutType]
+		let rect    = CGRect(x: 10.0, y: 20.0, width: 30.0, height: 80.0)
+		
+		layouts.distributeIn(rect, axis: .Vertical, spacing: 2.0, margin: LayoutInsets(top: 1.0, left: 2.0, bottom: 3.0, right: 4.0))
+		
+		XCTAssertEqual(layouts[0].frame, CGRect(x: 12.0, y: 21.0, width: 24.0, height: 17.5))
+		XCTAssertEqual(layouts[1].frame, CGRect(x: 12.0, y: 40.5, width: 24.0, height: 17.5))
+		XCTAssertEqual(layouts[2].frame, CGRect(x: 12.0, y: 60.0, width: 24.0, height: 17.5))
+		XCTAssertEqual(layouts[3].frame, CGRect(x: 12.0, y: 79.5, width: 24.0, height: 17.5))
+	}
 }
 
 extension LayoutTypeTest {
@@ -50,6 +73,12 @@ extension LayoutTypeTest {
 		let sublayout          = StubLayout(frame: subframe,   superlayout: superlayout)
 		superlayout.sublayouts = [sublayout]
 		return (superlayout, sublayout)
+	}
+	
+	private func stubSublayouts(sublayoutCount sublayoutCount: Int, superframe: CGRect = CGRect(), subframe: CGRect = CGRect()) -> StubLayout {
+		let superlayout        = StubLayout(frame: superframe, superlayout: nil)
+		superlayout.sublayouts = (0 ..< sublayoutCount).map { _ in StubLayout(frame: subframe, superlayout: superlayout) }
+		return superlayout
 	}
 }
 

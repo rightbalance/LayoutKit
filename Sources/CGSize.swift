@@ -27,12 +27,9 @@ extension CGSize {
 		
 		let parallelAxis = edge.parallelAxis
 		
-		anchoredRect.setPosition(
-			anchoredRect.positionOn(parallelAxis) + parallelAnchor.positionRelativeTo(
-				outerLength: rect.lengthOn(parallelAxis),
-				innerLength: lengthOn(parallelAxis)
-			),
-			onAxis: parallelAxis
+		anchoredRect.origin[parallelAxis] += parallelAnchor.positionRelativeTo(
+			outerLength: rect.size[parallelAxis],
+			innerLength: self[parallelAxis]
 		)
 		
 		switch edge {
@@ -55,17 +52,20 @@ extension CGSize {
 		return max(width, height)
 	}
 	
-	public func lengthOn(axis: LayoutAxis) -> CGFloat {
-		switch axis {
-			case .Horizontal: return width
-			case .Vertical:   return height
-		}
-	}
+	/// Provides subscripting access to the sizes values on the given axis.
 	
-	public mutating func setLength(length: CGFloat, onAxis axis: LayoutAxis) {
-		switch axis {
-			case .Horizontal: width  = length
-			case .Vertical:   height = length
+	public subscript(axis: LayoutAxis) -> CGFloat {
+		get {
+			switch axis {
+				case .Horizontal: return width
+				case .Vertical:   return height
+			}
+		}
+		set {
+			switch axis {
+				case .Horizontal: width  = newValue
+				case .Vertical:   height = newValue
+			}
 		}
 	}
 }

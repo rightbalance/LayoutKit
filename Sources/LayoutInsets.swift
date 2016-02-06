@@ -29,7 +29,7 @@ extension LayoutInsets {
 		self.vertical   = vertical
 	}
 	
-	// MARK: Getting information about the insets
+	// MARK: Managing inset values
 	
 	/// The sum of the left and right insets. Setting distributes the value equally to the left and right.
 	public var horizontal: CGFloat {
@@ -46,6 +46,42 @@ extension LayoutInsets {
 		set {
 			top    = newValue / 2.0
 			bottom = top
+		}
+	}
+	
+	/// Provides access to the insets on each axis. Setting distributes the value equally to both ends of the axis.
+	public subscript(axis: LayoutAxis) -> CGFloat {
+		get {
+			switch axis {
+				case .Horizontal: return horizontal
+				case .Vertical:   return vertical
+			}
+		}
+		set {
+			switch axis {
+				case .Horizontal: horizontal = newValue
+				case .Vertical:   vertical   = newValue
+			}
+		}
+	}
+	
+	/// Provides access to the insets by edge.
+	public subscript(edge: LayoutEdge) -> CGFloat {
+		get {
+			switch edge {
+				case .Top:    return top
+				case .Bottom: return bottom
+				case .Left:   return left
+				case .Right:  return right
+			}
+		}
+		set {
+			switch edge {
+				case .Top:    top    = newValue
+				case .Bottom: bottom = newValue
+				case .Left:   left   = newValue
+				case .Right:  right  = newValue
+			}
 		}
 	}
 }

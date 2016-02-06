@@ -50,22 +50,6 @@ extension CGRect {
 	
 	// MARK: Getting information about the rect
 	
-	public func positionOn(axis: LayoutAxis) -> CGFloat {
-		return origin.positionOn(axis)
-	}
-	
-	public mutating func setPosition(position: CGFloat, onAxis axis: LayoutAxis) {
-		origin.setPosition(position, onAxis: axis)
-	}
-	
-	public func lengthOn(axis: LayoutAxis) -> CGFloat {
-		return size.lengthOn(axis)
-	}
-	
-	public mutating func setLength(length: CGFloat, onAxis axis: LayoutAxis) {
-		size.setLength(length, onAxis: axis)
-	}
-	
 	public func positionAt(edge: LayoutEdge, inset: CGFloat = 0.0) -> CGFloat {
 		switch edge {
 			case .Top:    return minY + inset
