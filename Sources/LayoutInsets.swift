@@ -1,6 +1,7 @@
 import Foundation
 
 #if os(iOS)
+	import UIKit
 	public typealias LayoutInsets = UIEdgeInsets
 #else
 	public typealias LayoutInsets = NSEdgeInsets
