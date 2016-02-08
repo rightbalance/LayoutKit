@@ -104,7 +104,7 @@
 		7A1971AE1C62810C008A075B /* CGSizeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeTest.swift; sourceTree = "<group>"; };
 		7A1971B01C62810C008A075B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A47DFB51C65378700D7E9BF /* LayoutInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutInsets.swift; sourceTree = "<group>"; };
-		7A96E7E31C6931ED0076CC34 /* LayoutKit Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LayoutKit Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A96E7E31C6931ED0076CC34 /* LayoutKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayoutKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A96E7E51C6931ED0076CC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A96E7E71C6931ED0076CC34 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		7A96E7E91C6931ED0076CC34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 			children = (
 				7A19719F1C62810C008A075B /* LayoutKit.framework */,
 				7A1971A91C62810C008A075B /* LayoutKit iOS Tests.xctest */,
-				7A96E7E31C6931ED0076CC34 /* LayoutKit Demo.app */,
+				7A96E7E31C6931ED0076CC34 /* LayoutKitDemo.app */,
 				7A0B72161C694AF2000CF609 /* LayoutKit.framework */,
 				7A0B721F1C694AF2000CF609 /* LayoutKit OS X Tests.xctest */,
 			);
@@ -378,7 +378,7 @@
 			);
 			name = "LayoutKit Demo";
 			productName = LayoutKitDemo;
-			productReference = 7A96E7E31C6931ED0076CC34 /* LayoutKit Demo.app */;
+			productReference = 7A96E7E31C6931ED0076CC34 /* LayoutKitDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -794,7 +794,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.rightbalance.layout-kit.demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LayoutKitDemo;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -810,7 +810,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.rightbalance.layout-kit.demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LayoutKitDemo;
 				SDKROOT = macosx;
 			};
 			name = Release;

@@ -75,6 +75,16 @@ extension LayoutType {
 		frame = sizeRelativeTo(rect.size, width: width, height: height).centeredIn(rect)
 	}
 	
+	// MARK: Filling
+	
+	public func fillSuperlayout() {
+		guard let superlayout = superlayout else {
+			fatalError("Tried to make a layout fill its superlayout, but it doesn't have a superlayout.")
+		}
+		
+		frame = superlayout.bounds
+	}
+	
 	// MARK: Anchoring in
 	
 	/// Anchors the layout within its superlayout.
