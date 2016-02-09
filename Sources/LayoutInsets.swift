@@ -10,6 +10,11 @@ import Foundation
 extension LayoutInsets {
 	// MARK: Initializing
 	
+	/// Initializes insets with a uniform value for all edges.
+	public init(uniformValue: CGFloat) {
+		self.init(top: uniformValue, left: uniformValue, bottom: uniformValue, right: uniformValue)
+	}
+	
 	/// Initializes with the given horizontal value, which will be distributed equally to the left and right.
 	public init(horizontal: CGFloat) {
 		self.init()

@@ -1,4 +1,5 @@
 import AppKit
+import LayoutKit
 
 class AnchorDemoView: ModernView {
 	let topLeftView     = DemoView(color: NSColor.greenColor())
@@ -31,16 +32,18 @@ class AnchorDemoView: ModernView {
 	override func layout() {
 		super.layout()
 		
-		topLeftView     .anchorInSuperlayout(x: .Ratio(0.0), y: .Ratio(0.0), width: .Amount(30.0), height: .Amount(30.0))
-		topRightView    .anchorInSuperlayout(x: .Ratio(1.0), y: .Ratio(0.0), width: .Amount(30.0), height: .Amount(30.0))
-		bottomRightView .anchorInSuperlayout(x: .Ratio(1.0), y: .Ratio(1.0), width: .Amount(30.0), height: .Amount(30.0))
-		bottomLeftView  .anchorInSuperlayout(x: .Ratio(0.0), y: .Ratio(1.0), width: .Amount(30.0), height: .Amount(30.0))
+		let insets = LayoutInsets(uniformValue: 20.0)
 		
-		topView    .anchorInSuperlayout(x: .Ratio(0.5), y: .Ratio(0.0), width: .Ratio(0.5),   height: .Amount(30.0))
-		bottomView .anchorInSuperlayout(x: .Ratio(0.5), y: .Ratio(1.0), width: .Ratio(0.5),   height: .Amount(30.0))
-		leftView   .anchorInSuperlayout(x: .Ratio(0.0), y: .Ratio(0.5), width: .Amount(30.0), height: .Ratio(0.5))
-		rightView  .anchorInSuperlayout(x: .Ratio(1.0), y: .Ratio(0.5), width: .Amount(30.0), height: .Ratio(0.5))
+		topLeftView     .anchorInSuperlayout(x: .Ratio(0.0), y: .Ratio(0.0), width: .Amount(30.0), height: .Amount(30.0), insets: insets)
+		topRightView    .anchorInSuperlayout(x: .Ratio(1.0), y: .Ratio(0.0), width: .Amount(30.0), height: .Amount(30.0), insets: insets)
+		bottomRightView .anchorInSuperlayout(x: .Ratio(1.0), y: .Ratio(1.0), width: .Amount(30.0), height: .Amount(30.0), insets: insets)
+		bottomLeftView  .anchorInSuperlayout(x: .Ratio(0.0), y: .Ratio(1.0), width: .Amount(30.0), height: .Amount(30.0), insets: insets)
 		
-		centerView.centerInSuperlayout(width: .Amount(30.0), height: .Amount(30.0))
+		topView    .anchorInSuperlayout(x: .Ratio(0.5), y: .Ratio(0.0), width: .Ratio(0.5),   height: .Amount(30.0), insets: insets)
+		bottomView .anchorInSuperlayout(x: .Ratio(0.5), y: .Ratio(1.0), width: .Ratio(0.5),   height: .Amount(30.0), insets: insets)
+		leftView   .anchorInSuperlayout(x: .Ratio(0.0), y: .Ratio(0.5), width: .Amount(30.0), height: .Ratio(0.5),   insets: insets)
+		rightView  .anchorInSuperlayout(x: .Ratio(1.0), y: .Ratio(0.5), width: .Amount(30.0), height: .Ratio(0.5),   insets: insets)
+		
+		centerView.centerInSuperlayout(width: .Ratio(0.25), height: .Ratio(0.25), insets: insets)
 	}
 }
