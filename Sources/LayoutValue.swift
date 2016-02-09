@@ -16,7 +16,7 @@ public enum LayoutValue {
 	public func positionRelativeTo(outerLength outerLength: CGFloat, innerLength: CGFloat) -> CGFloat {
 		switch self {
 			case .Amount      (let amount):            return amount
-			case .Ratio       (let ratio):             return (outerLength - innerLength) * ratio // (100 - 20) * -0.5 = -40. x is 40. 40 - 100 = -60. so -60 to 40. -10 is middle. 20 is width. so value should actually be -20 right?
+			case .Ratio       (let ratio):             return (outerLength - innerLength) * ratio
 			case .OffsetRatio (let offset, let ratio): return (outerLength - innerLength) * ratio + offset
 		}
 	}
