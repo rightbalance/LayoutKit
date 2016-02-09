@@ -115,7 +115,7 @@ class LayoutTypeTest: XCTestCase {
 		let superlayout = stubSublayouts(sublayoutCount: 3, superframe: CGRect(x: 20.0, y: 30.0, width: 100.0, height: 50.0))
 		let sublayouts  = superlayout.sublayouts
 		
-		superlayout.sublayouts.distributeInSuperlayout(axis: .Horizontal, spacing: 4.0, margin: LayoutInsets(top: 5.0, left: 6.0, bottom: 7.0, right: 8.0))
+		superlayout.sublayouts.distributeInSuperlayout(axis: .Horizontal, spacing: 4.0, insets: LayoutInsets(top: 5.0, left: 6.0, bottom: 7.0, right: 8.0))
 		
 		XCTAssertEqual(sublayouts[0].frame, CGRect(x:  6.0, y: 5.0, width: 26.0, height: 38.0))
 		XCTAssertEqual(sublayouts[1].frame, CGRect(x: 36.0, y: 5.0, width: 26.0, height: 38.0))
@@ -126,7 +126,7 @@ class LayoutTypeTest: XCTestCase {
 		let layouts = [StubLayout(), StubLayout(), StubLayout(), StubLayout()] as [LayoutType]
 		let rect    = CGRect(x: 10.0, y: 20.0, width: 30.0, height: 80.0)
 		
-		layouts.distributeIn(rect, axis: .Vertical, spacing: 2.0, margin: LayoutInsets(top: 1.0, left: 2.0, bottom: 3.0, right: 4.0))
+		layouts.distributeIn(rect, axis: .Vertical, spacing: 2.0, insets: LayoutInsets(top: 1.0, left: 2.0, bottom: 3.0, right: 4.0))
 		
 		XCTAssertEqual(layouts[0].frame, CGRect(x: 12.0, y: 21.0, width: 24.0, height: 17.5))
 		XCTAssertEqual(layouts[1].frame, CGRect(x: 12.0, y: 40.5, width: 24.0, height: 17.5))

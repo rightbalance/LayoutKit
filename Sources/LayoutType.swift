@@ -168,7 +168,7 @@ extension CollectionType where Index == Int, Generator.Element == LayoutType {
 	///
 	/// - REQUIRES: All layouts have the same non-nil superlayout.
 	///
-	public func distributeInSuperlayout(axis axis: LayoutAxis, spacing: CGFloat = 0.0, margin: LayoutInsets = LayoutInsets()) {
+	public func distributeInSuperlayout(axis axis: LayoutAxis, spacing: CGFloat = 0.0, insets: LayoutInsets = LayoutInsets()) {
 		guard let first = first else { return }
 		
 		guard let superlayout = first.superlayout else {
@@ -179,11 +179,11 @@ extension CollectionType where Index == Int, Generator.Element == LayoutType {
 			assert(layout.superlayout === superlayout, "Tried to distribute a list of layouts in their superlayout, but their superlayouts did not match.")
 		}
 		
-		distributeIn(superlayout.bounds, axis: axis, spacing: spacing, margin: margin)
+		distributeIn(superlayout.bounds, axis: axis, spacing: spacing, insets: insets)
 	}
 	
 	/// Distributes the layouts equally along an axis within the given rect.
-	public func distributeIn(rect: CGRect, axis primaryAxis: LayoutAxis, spacing: CGFloat = 0.0, margin: LayoutInsets = LayoutInsets()) {
+	public func distributeIn(rect: CGRect, axis primaryAxis: LayoutAxis, spacing: CGFloat = 0.0, insets: LayoutInsets = LayoutInsets()) {
 		let count = self.count
 		
 		guard count > 0 else { return }
@@ -192,10 +192,10 @@ extension CollectionType where Index == Int, Generator.Element == LayoutType {
 		let totalSpacing  = spacing * CGFloat(count - 1)
 		
 		var frame                    = CGRect(origin: rect.origin)
-		frame.origin[primaryAxis]   += margin[primaryAxis.minEdge]
-		frame.origin[secondaryAxis] += margin[secondaryAxis.minEdge]
-		frame.size[primaryAxis]      = (rect.size[primaryAxis] - margin[primaryAxis] - totalSpacing) / CGFloat(count)
-		frame.size[secondaryAxis]    = rect.size[secondaryAxis] - margin[secondaryAxis]
+		frame.origin[primaryAxis]   += insets[primaryAxis.minEdge]
+		frame.origin[secondaryAxis] += insets[secondaryAxis.minEdge]
+		frame.size[primaryAxis]      = (rect.size[primaryAxis] - insets[primaryAxis] - totalSpacing) / CGFloat(count)
+		frame.size[secondaryAxis]    = rect.size[secondaryAxis] - insets[secondaryAxis]
 		
 		for index in startIndex ..< endIndex {
 			self[index].frame          = frame
