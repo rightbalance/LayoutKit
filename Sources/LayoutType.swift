@@ -59,30 +59,36 @@ extension LayoutType {
 	///
 	/// - REQUIRES: The layout's `superlayout` property is not nil.
 	///
-	public func centerInSuperlayout(width width: LayoutValue? = nil, height: LayoutValue? = nil) {
+	public func centerInSuperlayout(width width: LayoutValue? = nil, height: LayoutValue? = nil, insets: LayoutInsets = LayoutInsets()) {
 		guard let superlayout = superlayout else {
 			fatalError("Tried to center a layout in its superlayout, but it doesn't have a superlayout.")
 		}
 		
-		centerIn(superlayout.bounds, width: width, height: height)
+		centerIn(superlayout.bounds, width: width, height: height, insets: insets)
 	}
 	
 	/// Centers the layout within the given rect.
 	///
 	/// If a width or height is not provided, the layout's natural width or height will be used.
 	///
-	public func centerIn(rect: CGRect, width: LayoutValue? = nil, height: LayoutValue? = nil) {
-		frame = sizeRelativeTo(rect.size, width: width, height: height).centeredIn(rect)
+	public func centerIn(rect: CGRect, width: LayoutValue? = nil, height: LayoutValue? = nil, insets: LayoutInsets = LayoutInsets()) {
+		frame = sizeRelativeTo(rect.size - insets.size, width: width, height: height).centeredIn(rect)
 	}
 	
 	// MARK: Filling
 	
-	public func fillSuperlayout() {
+	/// Sets the frame of the layout such that it fills its superview.
+	public func fillSuperlayout(insets insets: LayoutInsets = LayoutInsets()) {
 		guard let superlayout = superlayout else {
 			fatalError("Tried to make a layout fill its superlayout, but it doesn't have a superlayout.")
 		}
 		
-		frame = superlayout.bounds
+		fill(superlayout.bounds, insets: insets)
+	}
+	
+	/// Sets the frame of the layout such that it fills the given rect.
+	public func fill(rect: CGRect, insets: LayoutInsets = LayoutInsets()) {
+		frame = rect.insetBy(insets)
 	}
 	
 	// MARK: Anchoring in
@@ -93,20 +99,21 @@ extension LayoutType {
 	///
 	/// - REQUIRES: The layout's `superlayout` property is not nil.
 	///
-	public func anchorInSuperlayout(x x: LayoutValue, y: LayoutValue, width: LayoutValue? = nil, height: LayoutValue? = nil) {
+	public func anchorInSuperlayout(x x: LayoutValue, y: LayoutValue, width: LayoutValue? = nil, height: LayoutValue? = nil, insets: LayoutInsets = LayoutInsets()) {
 		guard let superlayout = superlayout else {
 			fatalError("Tried to anchor a layout in its superlayout, but it doesn't have a superlayout.")
 		}
 		
-		anchorIn(superlayout.bounds, x: x, y: y, width: width, height: height)
+		anchorIn(superlayout.bounds, x: x, y: y, width: width, height: height, insets: insets)
 	}
 	
 	/// Anchors the layout within the given rect.
 	///
 	/// If a width or height is not provided, the layout's natural width or height will be used.
 	///
-	public func anchorIn(rect: CGRect, x: LayoutValue, y: LayoutValue, width: LayoutValue? = nil, height: LayoutValue? = nil) {
-		frame = sizeRelativeTo(rect.size, width: width, height: height).anchoredIn(rect, x: x, y: y)
+	public func anchorIn(rect: CGRect, x: LayoutValue, y: LayoutValue, width: LayoutValue? = nil, height: LayoutValue? = nil, insets: LayoutInsets = LayoutInsets()) {
+		let insetRect = rect.insetBy(insets)
+		frame         = sizeRelativeTo(insetRect.size, width: width, height: height).anchoredIn(insetRect, x: x, y: y)
 	}
 	
 	// MARK: Anchoring to

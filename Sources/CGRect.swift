@@ -45,16 +45,31 @@ extension CGRect {
 	
 	// MARK: Positioning
 	
+	/// Returns a new rect with its origin set to the given x and y positions.
 	public func positionedAt(x x: CGFloat, y: CGFloat) -> CGRect {
 		return positionedAt(CGPoint(x: x, y: y))
 	}
 	
+	/// Returns a new rect with its origin set to the given point.
 	public func positionedAt(point: CGPoint) -> CGRect {
 		return CGRect(x: point.x, y: point.y, width: width, height: height)
 	}
 	
+	// MARK: Insetting
+	
+	/// Returns a new rect by applying the given insets to the receiver.
+	public func insetBy(insets: LayoutInsets) -> CGRect {
+		var rect     = self
+		rect.x      += insets.left
+		rect.y      += insets.top
+		rect.width  -= insets.horizontal
+		rect.height -= insets.vertical
+		return rect
+	}
+	
 	// MARK: Getting information about the rect
 	
+	/// Returns the x or y position at the given edge of the rect.
 	public func positionAt(edge: LayoutEdge, inset: CGFloat = 0.0) -> CGFloat {
 		switch edge {
 			case .Top:    return minY + inset

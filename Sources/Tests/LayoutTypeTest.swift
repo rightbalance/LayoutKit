@@ -9,8 +9,14 @@ class LayoutTypeTest: XCTestCase {
 	
 	func testCenterInSuperlayout() {
 		let (_, sublayout) = stubSuperlayout(superframe: CGRect(x: 20.0, y: 40.0, width: 120.0, height: 80.0))
-		sublayout.centerInSuperlayout(width: .Amount(50.0), height: .Ratio(0.5))
-		XCTAssertEqual(sublayout.frame, CGRect(x: 35.0, y: 20.0, width: 50.0, height: 40.0))
+		
+		sublayout.centerInSuperlayout(
+			width:  .Amount(50.0),
+			height: .Ratio(0.5),
+			insets: LayoutInsets(horizontal: 4.0, vertical: 8.0)
+		)
+		
+		XCTAssertEqual(sublayout.frame, CGRect(x: 35.0, y: 22.0, width: 50.0, height: 36.0))
 		
 		sublayout.naturalSize = CGSize(width: 10.0, height: 20.0)
 		sublayout.centerInSuperlayout()
@@ -20,18 +26,45 @@ class LayoutTypeTest: XCTestCase {
 	func testCenterInRect() {
 		let layout = StubLayout()
 		let rect   = CGRect(x: 10.0, y: 50.0, width: 90.0, height: 60.0)
-		layout.centerIn(rect, width: .Ratio(0.2), height: .Amount(20.0))
-		XCTAssertEqual(layout.frame, CGRect(x: 46.0, y: 70.0, width: 18.0, height: 20.0))
+		
+		layout.centerIn(rect,
+			width:  .Ratio(0.2),
+			height: .Amount(20.0),
+			insets: LayoutInsets(horizontal: 20.0, vertical: 40.0)
+		)
+		
+		XCTAssertEqual(layout.frame, CGRect(x: 48.0, y: 70.0, width: 14.0, height: 20.0))
 		
 		layout.naturalSize = CGSize(width: 100.0, height: 200.0)
 		layout.centerIn(rect)
 		XCTAssertEqual(layout.frame, CGRect(x: 5.0, y: -20.0, width: 100.0, height: 200.0))
 	}
 	
+	func testFillSuperlayout() {
+		let (_, sublayout) = stubSuperlayout(superframe: CGRect(x: 10.0, y: 60.0, width: 90.0, height: 30.0))
+		sublayout.fillSuperlayout(insets: LayoutInsets(horizontal: 30.0, vertical: 10.0))
+		XCTAssertEqual(sublayout.frame, CGRect(x: 15.0, y: 5.0, width: 60.0, height: 20.0))
+	}
+	
+	func testFillRect() {
+		let layout = StubLayout()
+		let rect   = CGRect(x: -30.0, y: -50.0, width: 20.0, height: 40.0)
+		layout.fill(rect, insets: LayoutInsets(horizontal: 8.0, vertical: 12.0))
+		XCTAssertEqual(layout.frame, CGRect(x: -26.0, y: -44.0, width: 12.0, height: 28.0))
+	}
+	
 	func testAnchorInSuperlayout() {
 		let (_, sublayout) = stubSuperlayout(superframe: CGRect(x: 5.0, y: 10.0, width: 80.0, height: 40.0))
-		sublayout.anchorInSuperlayout(x: .Ratio(0.25), y: .Amount(20.0), width: .Ratio(0.5), height: .Amount(10.0))
-		XCTAssertEqual(sublayout.frame, CGRect(x: 10.0, y: 20.0, width: 40.0, height: 10.0))
+		
+		sublayout.anchorInSuperlayout(
+			x:      .Ratio(0.25),
+			y:      .Amount(20.0),
+			width:  .Ratio(0.5),
+			height: .Amount(10.0),
+			insets: LayoutInsets(horizontal: 20.0, vertical: 10.0)
+		)
+		
+		XCTAssertEqual(sublayout.frame, CGRect(x: 17.5, y: 25.0, width: 30.0, height: 10.0))
 		
 		sublayout.naturalSize = CGSize(width: 50.0, height: 70.0)
 		sublayout.anchorInSuperlayout(x: .Amount(10.0), y: .Ratio(1.0))
@@ -41,8 +74,16 @@ class LayoutTypeTest: XCTestCase {
 	func testAnchorInRect() {
 		let layout = StubLayout()
 		let rect   = CGRect(x: 40.0, y: 60.0, width: 100.0, height: 40.0)
-		layout.anchorIn(rect, x: .Ratio(1.0), y: .Ratio(0.75), width: .Ratio(0.25), height: .Amount(20.0))
-		XCTAssertEqual(layout.frame, CGRect(x: 115.0, y: 75.0, width: 25.0, height: 20.0))
+		
+		layout.anchorIn(rect,
+			x:      .Ratio(1.0),
+			y:      .Ratio(0.75),
+			width:  .Ratio(0.25),
+			height: .Amount(20.0),
+			insets: LayoutInsets(horizontal: 30.0, vertical: 10.0)
+		)
+		
+		XCTAssertEqual(layout.frame, CGRect(x: 107.5, y: 72.5, width: 17.5, height: 20.0))
 		
 		layout.naturalSize = CGSize(width: 20.0, height: 30.0)
 		layout.anchorIn(rect, x: .Ratio(-0.5), y: .Amount(10.0))

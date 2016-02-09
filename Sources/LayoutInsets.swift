@@ -50,6 +50,11 @@ extension LayoutInsets {
 		}
 	}
 	
+	/// The size of the insets with the width containing left/right values and the height containing top/bottom values.
+	public var size: CGSize {
+		return CGSize(width: horizontal, height: vertical)
+	}
+	
 	/// Provides access to the insets on each axis. Setting distributes the value equally to both ends of the axis.
 	public subscript(axis: LayoutAxis) -> CGFloat {
 		get {
