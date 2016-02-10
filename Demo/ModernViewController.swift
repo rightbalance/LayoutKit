@@ -1,5 +1,11 @@
 import AppKit
 
+class ModernViewController: NSViewController {
+	override func loadView() {
+		view = ModernView()
+	}
+}
+
 class ModernView: NSView {
 	init() {
 		super.init(frame: CGRect())

@@ -1,36 +1,45 @@
 import AppKit
 import LayoutKit
 
-class AnchorDemoView: ModernView {
-	let topLeftView     = DemoView(color: NSColor.greenColor())
-	let topView         = DemoView(color: NSColor.redColor())
-	let topRightView    = DemoView(color: NSColor.blueColor())
-	let rightView       = DemoView(color: NSColor.yellowColor())
-	let bottomRightView = DemoView(color: NSColor.orangeColor())
-	let bottomView      = DemoView(color: NSColor.purpleColor())
-	let bottomLeftView  = DemoView(color: NSColor.whiteColor())
-	let leftView        = DemoView(color: NSColor.brownColor())
-	let centerView      = DemoView(color: NSColor.blackColor())
+class AnchorDemoViewController: ModernViewController {
+	// MARK: Initializing
 	
-	override init() {
-		super.init()
-		addSubview(topLeftView)
-		addSubview(topView)
-		addSubview(topRightView)
-		addSubview(rightView)
-		addSubview(bottomRightView)
-		addSubview(bottomView)
-		addSubview(bottomLeftView)
-		addSubview(leftView)
-		addSubview(centerView)
+	init() {
+		super.init(nibName: nil, bundle: nil)!
+		
+		title = "Anchors"
+		
+		view.addSubview(topLeftView)
+		view.addSubview(topView)
+		view.addSubview(topRightView)
+		view.addSubview(rightView)
+		view.addSubview(bottomRightView)
+		view.addSubview(bottomView)
+		view.addSubview(bottomLeftView)
+		view.addSubview(leftView)
+		view.addSubview(centerView)
 	}
 	
 	required init(coder: NSCoder) {
 		fatalError("NSCoding not supported.")
 	}
 	
-	override func layout() {
-		super.layout()
+	// MARK: Views
+	
+	let topLeftView     = DemoView(text: "Top Left")
+	let topView         = DemoView(text: "Top")
+	let topRightView    = DemoView(text: "Top Right")
+	let rightView       = DemoView(text: "Right")
+	let bottomRightView = DemoView(text: "Bottom Right")
+	let bottomView      = DemoView(text: "Bottom")
+	let bottomLeftView  = DemoView(text: "Bottom Left")
+	let leftView        = DemoView(text: "Left")
+	let centerView      = DemoView(text: "Center")
+	
+	// MARK: Layout
+	
+	override func viewDidLayout() {
+		super.viewDidLayout()
 		
 		let insets = LayoutInsets(uniformValue: 20.0)
 		

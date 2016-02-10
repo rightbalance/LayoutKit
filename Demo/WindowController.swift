@@ -1,11 +1,28 @@
 import AppKit
 
 class WindowController: NSWindowController {
-	var demoViewController: DemoViewController {
-		return  contentViewController as! DemoViewController
+	@IBOutlet var segmentedControl:            NSSegmentedControl!
+	@IBOutlet var segmentedControlToolbarItem: NSToolbarItem!
+	
+	var demoGalleryViewController: DemoGalleryViewController {
+		return contentViewController as! DemoGalleryViewController
+	}
+	
+	override func windowDidLoad() {
+		super.windowDidLoad()
+		
+		segmentedControl.segmentCount = demoGalleryViewController.viewControllers.count
+		
+		for (index, viewController) in demoGalleryViewController.viewControllers.enumerate() {
+			segmentedControl.setLabel(viewController.title ?? "", forSegment: index)
+		}
+		
+		segmentedControl.sizeToFit()
+		segmentedControlToolbarItem.minSize = segmentedControl.frame.size
+		segmentedControlToolbarItem.maxSize = segmentedControlToolbarItem.minSize
 	}
 	
 	@IBAction func segmentedControlWasClicked(segmentedControl: NSSegmentedControl) {
-		demoViewController.selectViewAt(segmentedControl.selectedSegment)
+		demoGalleryViewController.selectViewControllerAt(segmentedControl.selectedSegment)
 	}
 }

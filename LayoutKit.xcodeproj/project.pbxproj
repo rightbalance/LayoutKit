@@ -23,9 +23,9 @@
 		7A0B723F1C694E2F000CF609 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B723E1C694E2F000CF609 /* NSView.swift */; };
 		7A0B72481C69502A000CF609 /* UIViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72471C69502A000CF609 /* UIViewTest.swift */; };
 		7A0B724A1C69507B000CF609 /* NSViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72491C69507B000CF609 /* NSViewTest.swift */; };
-		7A0B72511C696A38000CF609 /* ModernView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B724F1C695D51000CF609 /* ModernView.swift */; };
+		7A0B72511C696A38000CF609 /* ModernViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B724F1C695D51000CF609 /* ModernViewController.swift */; };
 		7A0B72521C696A3F000CF609 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B724D1C695D4A000CF609 /* DemoView.swift */; };
-		7A0B72531C696A44000CF609 /* AnchorDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B724B1C695D3A000CF609 /* AnchorDemoView.swift */; };
+		7A0B72531C696A44000CF609 /* AnchorDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B724B1C695D3A000CF609 /* AnchorDemoViewController.swift */; };
 		7A0B72551C6973D4000CF609 /* CGRectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72541C6973D4000CF609 /* CGRectTest.swift */; };
 		7A0B72561C69798E000CF609 /* CGRectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72541C6973D4000CF609 /* CGRectTest.swift */; };
 		7A0B72571C697990000CF609 /* CGSizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1971AE1C62810C008A075B /* CGSizeTest.swift */; };
@@ -33,14 +33,14 @@
 		7A0B72631C6AC462000CF609 /* LayoutGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72591C697D6C000CF609 /* LayoutGrid.swift */; };
 		7A0B72641C6AC463000CF609 /* LayoutGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72591C697D6C000CF609 /* LayoutGrid.swift */; };
 		7A0B72661C6AC88B000CF609 /* LayoutGridTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72651C6AC88B000CF609 /* LayoutGridTest.swift */; };
-		7A0B72691C6AD029000CF609 /* GridDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B725B1C698075000CF609 /* GridDemoView.swift */; };
+		7A0B72691C6AD029000CF609 /* GridDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B725B1C698075000CF609 /* GridDemoViewController.swift */; };
 		7A0B726A1C6AD03E000CF609 /* LayoutGridTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72651C6AC88B000CF609 /* LayoutGridTest.swift */; };
 		7A1971A31C62810C008A075B /* LayoutKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A1971A21C62810C008A075B /* LayoutKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A1971AA1C62810C008A075B /* LayoutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A19719F1C62810C008A075B /* LayoutKit.framework */; };
 		7A1971AF1C62810C008A075B /* CGSizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1971AE1C62810C008A075B /* CGSizeTest.swift */; };
 		7A47DFB61C65378700D7E9BF /* LayoutInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47DFB51C65378700D7E9BF /* LayoutInsets.swift */; };
 		7A96E7E61C6931ED0076CC34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A96E7E51C6931ED0076CC34 /* AppDelegate.swift */; };
-		7A96E7E81C6931ED0076CC34 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A96E7E71C6931ED0076CC34 /* DemoViewController.swift */; };
+		7A96E7E81C6931ED0076CC34 /* DemoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A96E7E71C6931ED0076CC34 /* DemoGalleryViewController.swift */; };
 		7A96E7EA1C6931ED0076CC34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A96E7E91C6931ED0076CC34 /* Assets.xcassets */; };
 		7A96E7ED1C6931ED0076CC34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A96E7EB1C6931ED0076CC34 /* Main.storyboard */; };
 		7ACE2F911C62886E00C431DF /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8C1C62886E00C431DF /* CGRect.swift */; };
@@ -103,12 +103,12 @@
 		7A0B72461C694F10000CF609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A0B72471C69502A000CF609 /* UIViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewTest.swift; sourceTree = "<group>"; };
 		7A0B72491C69507B000CF609 /* NSViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewTest.swift; sourceTree = "<group>"; };
-		7A0B724B1C695D3A000CF609 /* AnchorDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorDemoView.swift; sourceTree = "<group>"; };
+		7A0B724B1C695D3A000CF609 /* AnchorDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorDemoViewController.swift; sourceTree = "<group>"; };
 		7A0B724D1C695D4A000CF609 /* DemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
-		7A0B724F1C695D51000CF609 /* ModernView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernView.swift; sourceTree = "<group>"; };
+		7A0B724F1C695D51000CF609 /* ModernViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernViewController.swift; sourceTree = "<group>"; };
 		7A0B72541C6973D4000CF609 /* CGRectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectTest.swift; sourceTree = "<group>"; };
 		7A0B72591C697D6C000CF609 /* LayoutGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutGrid.swift; sourceTree = "<group>"; };
-		7A0B725B1C698075000CF609 /* GridDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridDemoView.swift; sourceTree = "<group>"; };
+		7A0B725B1C698075000CF609 /* GridDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridDemoViewController.swift; sourceTree = "<group>"; };
 		7A0B72651C6AC88B000CF609 /* LayoutGridTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutGridTest.swift; sourceTree = "<group>"; };
 		7A19719F1C62810C008A075B /* LayoutKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LayoutKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1971A21C62810C008A075B /* LayoutKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayoutKit.h; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		7A47DFB51C65378700D7E9BF /* LayoutInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutInsets.swift; sourceTree = "<group>"; };
 		7A96E7E31C6931ED0076CC34 /* LayoutKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayoutKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A96E7E51C6931ED0076CC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A96E7E71C6931ED0076CC34 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		7A96E7E71C6931ED0076CC34 /* DemoGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoGalleryViewController.swift; sourceTree = "<group>"; };
 		7A96E7E91C6931ED0076CC34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A96E7EC1C6931ED0076CC34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A96E7EE1C6931ED0076CC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -272,15 +272,15 @@
 		7A96E7E41C6931ED0076CC34 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				7A0B724B1C695D3A000CF609 /* AnchorDemoView.swift */,
+				7A0B724B1C695D3A000CF609 /* AnchorDemoViewController.swift */,
 				7A96E7E51C6931ED0076CC34 /* AppDelegate.swift */,
 				7A96E7E91C6931ED0076CC34 /* Assets.xcassets */,
 				7A0B724D1C695D4A000CF609 /* DemoView.swift */,
-				7A96E7E71C6931ED0076CC34 /* DemoViewController.swift */,
-				7A0B725B1C698075000CF609 /* GridDemoView.swift */,
+				7A96E7E71C6931ED0076CC34 /* DemoGalleryViewController.swift */,
+				7A0B725B1C698075000CF609 /* GridDemoViewController.swift */,
 				7A96E7EE1C6931ED0076CC34 /* Info.plist */,
 				7A96E7EB1C6931ED0076CC34 /* Main.storyboard */,
-				7A0B724F1C695D51000CF609 /* ModernView.swift */,
+				7A0B724F1C695D51000CF609 /* ModernViewController.swift */,
 				7A0B71FC1C6948B6000CF609 /* WindowController.swift */,
 			);
 			path = Demo;
@@ -551,13 +551,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A0B72691C6AD029000CF609 /* GridDemoView.swift in Sources */,
-				7A96E7E81C6931ED0076CC34 /* DemoViewController.swift in Sources */,
+				7A0B72691C6AD029000CF609 /* GridDemoViewController.swift in Sources */,
+				7A96E7E81C6931ED0076CC34 /* DemoGalleryViewController.swift in Sources */,
 				7A0B71FE1C6949AD000CF609 /* WindowController.swift in Sources */,
-				7A0B72531C696A44000CF609 /* AnchorDemoView.swift in Sources */,
+				7A0B72531C696A44000CF609 /* AnchorDemoViewController.swift in Sources */,
 				7A96E7E61C6931ED0076CC34 /* AppDelegate.swift in Sources */,
 				7A0B72521C696A3F000CF609 /* DemoView.swift in Sources */,
-				7A0B72511C696A38000CF609 /* ModernView.swift in Sources */,
+				7A0B72511C696A38000CF609 /* ModernViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,6 +850,7 @@
 				7A0B722F1C694AF2000CF609 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A0B72301C694AF2000CF609 /* Build configuration list for PBXNativeTarget "LayoutKit OS X Tests" */ = {
 			isa = XCConfigurationList;
@@ -858,6 +859,7 @@
 				7A0B72321C694AF2000CF609 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A1971991C62810C008A075B /* Build configuration list for PBXProject "LayoutKit" */ = {
 			isa = XCConfigurationList;
