@@ -30,6 +30,11 @@
 		7A0B72561C69798E000CF609 /* CGRectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72541C6973D4000CF609 /* CGRectTest.swift */; };
 		7A0B72571C697990000CF609 /* CGSizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1971AE1C62810C008A075B /* CGSizeTest.swift */; };
 		7A0B72581C697993000CF609 /* LayoutTypeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2FC21C62D62500C431DF /* LayoutTypeTest.swift */; };
+		7A0B72631C6AC462000CF609 /* LayoutGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72591C697D6C000CF609 /* LayoutGrid.swift */; };
+		7A0B72641C6AC463000CF609 /* LayoutGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72591C697D6C000CF609 /* LayoutGrid.swift */; };
+		7A0B72661C6AC88B000CF609 /* LayoutGridTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72651C6AC88B000CF609 /* LayoutGridTest.swift */; };
+		7A0B72691C6AD029000CF609 /* GridDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B725B1C698075000CF609 /* GridDemoView.swift */; };
+		7A0B726A1C6AD03E000CF609 /* LayoutGridTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B72651C6AC88B000CF609 /* LayoutGridTest.swift */; };
 		7A1971A31C62810C008A075B /* LayoutKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A1971A21C62810C008A075B /* LayoutKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A1971AA1C62810C008A075B /* LayoutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A19719F1C62810C008A075B /* LayoutKit.framework */; };
 		7A1971AF1C62810C008A075B /* CGSizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1971AE1C62810C008A075B /* CGSizeTest.swift */; };
@@ -56,13 +61,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7A0B72151C694AF2000CF609;
 			remoteInfo = "LayoutKit OS X";
-		};
-		7A0B72231C694AF2000CF609 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7A1971961C62810C008A075B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7A96E7E21C6931ED0076CC34;
-			remoteInfo = LayoutKitDemo;
 		};
 		7A0B72291C694AF2000CF609 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -109,6 +107,9 @@
 		7A0B724D1C695D4A000CF609 /* DemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
 		7A0B724F1C695D51000CF609 /* ModernView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernView.swift; sourceTree = "<group>"; };
 		7A0B72541C6973D4000CF609 /* CGRectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectTest.swift; sourceTree = "<group>"; };
+		7A0B72591C697D6C000CF609 /* LayoutGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutGrid.swift; sourceTree = "<group>"; };
+		7A0B725B1C698075000CF609 /* GridDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridDemoView.swift; sourceTree = "<group>"; };
+		7A0B72651C6AC88B000CF609 /* LayoutGridTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutGridTest.swift; sourceTree = "<group>"; };
 		7A19719F1C62810C008A075B /* LayoutKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LayoutKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1971A21C62810C008A075B /* LayoutKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayoutKit.h; sourceTree = "<group>"; };
 		7A1971A91C62810C008A075B /* LayoutKit iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LayoutKit iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +245,7 @@
 				7ACE2F8D1C62886E00C431DF /* CGSize.swift */,
 				7AE4788F1C62EDCD0067B086 /* LayoutAxis.swift */,
 				7ACE2F8E1C62886E00C431DF /* LayoutEdge.swift */,
+				7A0B72591C697D6C000CF609 /* LayoutGrid.swift */,
 				7A47DFB51C65378700D7E9BF /* LayoutInsets.swift */,
 				7A1971A21C62810C008A075B /* LayoutKit.h */,
 				7ACE2F8F1C62886E00C431DF /* LayoutType.swift */,
@@ -260,6 +262,7 @@
 				7A0B72541C6973D4000CF609 /* CGRectTest.swift */,
 				7A1971AE1C62810C008A075B /* CGSizeTest.swift */,
 				7A1971B01C62810C008A075B /* Info.plist */,
+				7A0B72651C6AC88B000CF609 /* LayoutGridTest.swift */,
 				7ACE2FC21C62D62500C431DF /* LayoutTypeTest.swift */,
 			);
 			name = Tests;
@@ -274,6 +277,7 @@
 				7A96E7E91C6931ED0076CC34 /* Assets.xcassets */,
 				7A0B724D1C695D4A000CF609 /* DemoView.swift */,
 				7A96E7E71C6931ED0076CC34 /* DemoViewController.swift */,
+				7A0B725B1C698075000CF609 /* GridDemoView.swift */,
 				7A96E7EE1C6931ED0076CC34 /* Info.plist */,
 				7A96E7EB1C6931ED0076CC34 /* Main.storyboard */,
 				7A0B724F1C695D51000CF609 /* ModernView.swift */,
@@ -334,7 +338,6 @@
 			);
 			dependencies = (
 				7A0B72221C694AF2000CF609 /* PBXTargetDependency */,
-				7A0B72241C694AF2000CF609 /* PBXTargetDependency */,
 			);
 			name = "LayoutKit OS X Tests";
 			productName = "LayoutKit OS XTests";
@@ -493,6 +496,7 @@
 				7A0B723C1C694E17000CF609 /* LayoutType.swift in Sources */,
 				7A0B72361C694E17000CF609 /* CGPoint.swift in Sources */,
 				7A0B723B1C694E17000CF609 /* LayoutInsets.swift in Sources */,
+				7A0B72631C6AC462000CF609 /* LayoutGrid.swift in Sources */,
 				7A0B72381C694E17000CF609 /* CGSize.swift in Sources */,
 				7A0B72391C694E17000CF609 /* LayoutAxis.swift in Sources */,
 				7A0B72371C694E17000CF609 /* CGRect.swift in Sources */,
@@ -507,6 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A0B72571C697990000CF609 /* CGSizeTest.swift in Sources */,
+				7A0B72661C6AC88B000CF609 /* LayoutGridTest.swift in Sources */,
 				7A0B724A1C69507B000CF609 /* NSViewTest.swift in Sources */,
 				7A0B72551C6973D4000CF609 /* CGRectTest.swift in Sources */,
 				7A0B72581C697993000CF609 /* LayoutTypeTest.swift in Sources */,
@@ -520,6 +525,7 @@
 				7ACE2F951C62886E00C431DF /* UIView.swift in Sources */,
 				7A47DFB61C65378700D7E9BF /* LayoutInsets.swift in Sources */,
 				7ACE2F921C62886E00C431DF /* CGSize.swift in Sources */,
+				7A0B72641C6AC463000CF609 /* LayoutGrid.swift in Sources */,
 				7ACE2F911C62886E00C431DF /* CGRect.swift in Sources */,
 				7ACE2F931C62886E00C431DF /* LayoutEdge.swift in Sources */,
 				7AE478921C62EEC20067B086 /* CGPoint.swift in Sources */,
@@ -534,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A1971AF1C62810C008A075B /* CGSizeTest.swift in Sources */,
+				7A0B726A1C6AD03E000CF609 /* LayoutGridTest.swift in Sources */,
 				7A0B72481C69502A000CF609 /* UIViewTest.swift in Sources */,
 				7ACE2FC41C62D66A00C431DF /* LayoutTypeTest.swift in Sources */,
 				7A0B72561C69798E000CF609 /* CGRectTest.swift in Sources */,
@@ -544,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A0B72691C6AD029000CF609 /* GridDemoView.swift in Sources */,
 				7A96E7E81C6931ED0076CC34 /* DemoViewController.swift in Sources */,
 				7A0B71FE1C6949AD000CF609 /* WindowController.swift in Sources */,
 				7A0B72531C696A44000CF609 /* AnchorDemoView.swift in Sources */,
@@ -560,11 +568,6 @@
 			isa = PBXTargetDependency;
 			target = 7A0B72151C694AF2000CF609 /* LayoutKit OS X */;
 			targetProxy = 7A0B72211C694AF2000CF609 /* PBXContainerItemProxy */;
-		};
-		7A0B72241C694AF2000CF609 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7A96E7E21C6931ED0076CC34 /* LayoutKit Demo */;
-			targetProxy = 7A0B72231C694AF2000CF609 /* PBXContainerItemProxy */;
 		};
 		7A0B722A1C694AF2000CF609 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

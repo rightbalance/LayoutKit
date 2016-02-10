@@ -1,8 +1,15 @@
 import CoreGraphics
 
+/// A value used to calculate the position or size of a layout.
 public enum LayoutValue {
+	/// A constant value. When used for a position or size, this exact value will be used.
 	case Amount(CGFloat)
+	
+	/// A relative value. What the value is relative to depends on the context. For example, a layout could use a ratio
+	/// value of 0.5 relative to its superlayout's size to dynamically size itself to half of its superlayout's size.
 	case Ratio(CGFloat)
+	
+	/// An offset relative value. Works the same as a regular ratio, but offset by a constant amount.
 	case OffsetRatio(offset: CGFloat, ratio: CGFloat)
 	
 	public func valueRelativeTo(relativeValue: CGFloat) -> CGFloat {

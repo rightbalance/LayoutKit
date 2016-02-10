@@ -17,7 +17,8 @@ class DemoViewController: NSViewController {
 	// MARK: Selecting views
 	
 	private let views: [NSView] = [
-		AnchorDemoView()
+		AnchorDemoView(),
+		GridDemoView()
 	]
 	
 	private var selectedView: NSView?
