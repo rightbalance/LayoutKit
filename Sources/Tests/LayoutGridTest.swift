@@ -39,13 +39,13 @@ class LayoutGridTest: XCTestCase {
 		)
 		
 		XCTAssertEqual(
-			grid.boundsForAreaIn(columnRange: -2 ... 2, rowRange: -2 ... 2),
-			CGRect(x: -130.0, y: -220.0, width: 190.0, height: 370.0)
+			grid.boundsForAreaIn(columnRange: -2 ... 2, rowRange: -2 ... 4),
+			CGRect(x: -130.0, y: -220.0, width: 190.0, height: 530.0)
 		)
 		
 		XCTAssertEqual(
-			grid.boundsForAreaIn(columnRange: 3 ... 5, rowRange: 6 ... 8),
-			CGRect(x: 70.0, y: 420.0, width: 110.0, height: 210.0)
+			grid.boundsForAreaIn(columnRange: 3 ... 5, rowRange: 6 ... 7),
+			CGRect(x: 70.0, y: 420.0, width: 110.0, height: 130.0)
 		)
 	}
 }

@@ -61,7 +61,7 @@ public struct LayoutGrid: Equatable {
 	///
 	public func boundsForAreaIn(columnRange columnRange: Range<Int>, rowRange: Range<Int>) -> CGRect {
 		let columnCount = columnRange.count
-		let rowCount    = columnRange.count
+		let rowCount    = rowRange.count
 		
 		return CGRect(
 			x:      origin.x + (cellSize.width  + cellSpacing.x) * CGFloat(columnRange.startIndex),
