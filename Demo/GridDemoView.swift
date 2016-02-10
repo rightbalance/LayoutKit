@@ -2,19 +2,28 @@ import AppKit
 import LayoutKit
 
 class GridDemoView: ModernView {
-	let topView    = DemoView(color: NSColor.yellowColor())
-	let bottomView = DemoView(color: NSColor.orangeColor())
-	let leftView   = DemoView(color: NSColor.blueColor())
-	let rightView  = DemoView(color: NSColor.greenColor())
-	let centerView = DemoView(color: NSColor.whiteColor())
+	let topView   = DemoView(color: NSColor.greenColor())
+	let leftView  = DemoView(color: NSColor.blueColor())
+	var cellViews = [DemoView]()
+	
+	let columnCount = 6
+	let rowCount    = 5
+	
+	var cellCount: Int {
+		return (columnCount - 1) * (rowCount - 1)
+	}
 	
 	override init() {
 		super.init()
+		
 		addSubview(topView)
-		addSubview(bottomView)
 		addSubview(leftView)
-		addSubview(rightView)
-		addSubview(centerView)
+		
+		for _ in 0 ..< cellCount {
+			let cellView = DemoView(color: NSColor.redColor())
+			cellViews.append(cellView)
+			addSubview(cellView)
+		}
 	}
 	
 	required init(coder: NSCoder) {
@@ -24,10 +33,12 @@ class GridDemoView: ModernView {
 	override func layout() {
 		super.layout()
 		
-		let grid         = LayoutGrid(rect: bounds, columnCount: 6, rowCount: 5, cellSpacing: CGPoint(x: 8.0, y: 8.0), insets: LayoutInsets(uniformValue: 16.0))
-		topView.frame    = grid.boundsForAreaIn(columnRange: 2 ... 3, rowRange: 0 ... 0)
-		bottomView.frame = grid.boundsForAreaIn(columnRange: 2 ... 3, rowRange: 4 ... 4)
-		leftView.frame   = grid.boundsForAreaIn(columnRange: 0 ... 0, rowRange: 0 ... 4)
-		rightView.frame  = grid.boundsForAreaIn(columnRange: 5 ... 5, rowRange: 0 ... 4)
+		let grid       = LayoutGrid(rect: bounds, columnCount: columnCount, rowCount: rowCount, cellSpacing: CGPoint(x: 8.0, y: 8.0), insets: LayoutInsets(uniformValue: 16.0))
+		topView.frame  = grid.boundsForAreaIn(columnRange: 1 ... 5, rowRange: 0 ... 0)
+		leftView.frame = grid.boundsForAreaIn(columnRange: 0 ... 0, rowRange: 0 ... 4)
+		
+		for i in 0 ..< cellCount {
+			cellViews[i].frame = grid.boundsForCellAt(column: i % (columnCount - 1) + 1, row: i / (columnCount - 1) + 1)
+		}
 	}
 }
