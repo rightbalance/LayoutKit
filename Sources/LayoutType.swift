@@ -203,3 +203,36 @@ extension CollectionType where Index == Int, Generator.Element == LayoutType {
 		}
 	}
 }
+
+extension CollectionType where Index == Int, Generator.Element == (LayoutType?, LayoutConstraint) {
+	/// Distributes the layouts with the given constraints along an axis within their common superlayout.
+	///
+	/// - REQUIRES: All layouts have the same non-nil superlayout, and at least one layout is non-nil.
+	///
+	public func distributeInSuperlayout(axis axis: LayoutAxis, spacing: CGFloat = 0.0, insets: LayoutInsets = LayoutInsets()) {
+		var superlayout: LayoutType?
+		
+		for (layout, _) in self where layout != nil {
+			guard let thisSuperlayout = layout?.superlayout else {
+				fatalError("Tried to distribute a list of constrained layouts in their superlayout, but a superlayout was not found.")
+			}
+			
+			if superlayout == nil {
+				superlayout = thisSuperlayout
+			}
+			
+			precondition(thisSuperlayout === superlayout, "Tried to distribute a list of layouts in their superlayout, but their superlayouts did not match.")
+		}
+		
+		if let superlayout = superlayout {
+			distributeIn(superlayout.bounds, axis: axis, spacing: spacing, insets: insets)
+		} else {
+			fatalError("At least one non-nil layout is required when distributing layouts.")
+		}
+	}
+	
+	/// Distributes the layouts with the given constraints along an axis within the given rect.
+	public func distributeIn(rect: CGRect, axis primaryAxis: LayoutAxis, spacing: CGFloat = 0.0, insets: LayoutInsets = LayoutInsets()) {
+		fatalError("Not implemented yet.")
+	}
+}

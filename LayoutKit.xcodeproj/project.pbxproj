@@ -39,6 +39,8 @@
 		7A1971AA1C62810C008A075B /* LayoutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A19719F1C62810C008A075B /* LayoutKit.framework */; };
 		7A1971AF1C62810C008A075B /* CGSizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1971AE1C62810C008A075B /* CGSizeTest.swift */; };
 		7A47DFB61C65378700D7E9BF /* LayoutInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47DFB51C65378700D7E9BF /* LayoutInsets.swift */; };
+		7A6C04771C6C237500B714A5 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6C04761C6C237500B714A5 /* LayoutConstraint.swift */; };
+		7A6C04781C6C239C00B714A5 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6C04761C6C237500B714A5 /* LayoutConstraint.swift */; };
 		7A96E7E61C6931ED0076CC34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A96E7E51C6931ED0076CC34 /* AppDelegate.swift */; };
 		7A96E7E81C6931ED0076CC34 /* DemoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A96E7E71C6931ED0076CC34 /* DemoGalleryViewController.swift */; };
 		7A96E7EA1C6931ED0076CC34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A96E7E91C6931ED0076CC34 /* Assets.xcassets */; };
@@ -116,6 +118,7 @@
 		7A1971AE1C62810C008A075B /* CGSizeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeTest.swift; sourceTree = "<group>"; };
 		7A1971B01C62810C008A075B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A47DFB51C65378700D7E9BF /* LayoutInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutInsets.swift; sourceTree = "<group>"; };
+		7A6C04761C6C237500B714A5 /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
 		7A96E7E31C6931ED0076CC34 /* LayoutKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayoutKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A96E7E51C6931ED0076CC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A96E7E71C6931ED0076CC34 /* DemoGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoGalleryViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +247,7 @@
 				7ACE2F8C1C62886E00C431DF /* CGRect.swift */,
 				7ACE2F8D1C62886E00C431DF /* CGSize.swift */,
 				7AE4788F1C62EDCD0067B086 /* LayoutAxis.swift */,
+				7A6C04761C6C237500B714A5 /* LayoutConstraint.swift */,
 				7ACE2F8E1C62886E00C431DF /* LayoutEdge.swift */,
 				7A0B72591C697D6C000CF609 /* LayoutGrid.swift */,
 				7A47DFB51C65378700D7E9BF /* LayoutInsets.swift */,
@@ -494,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A0B723C1C694E17000CF609 /* LayoutType.swift in Sources */,
+				7A6C04781C6C239C00B714A5 /* LayoutConstraint.swift in Sources */,
 				7A0B72361C694E17000CF609 /* CGPoint.swift in Sources */,
 				7A0B723B1C694E17000CF609 /* LayoutInsets.swift in Sources */,
 				7A0B72631C6AC462000CF609 /* LayoutGrid.swift in Sources */,
@@ -523,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ACE2F951C62886E00C431DF /* UIView.swift in Sources */,
+				7A6C04771C6C237500B714A5 /* LayoutConstraint.swift in Sources */,
 				7A47DFB61C65378700D7E9BF /* LayoutInsets.swift in Sources */,
 				7ACE2F921C62886E00C431DF /* CGSize.swift in Sources */,
 				7A0B72641C6AC463000CF609 /* LayoutGrid.swift in Sources */,
