@@ -19,7 +19,8 @@ class DemoGalleryViewController: ModernViewController {
 	
 	let viewControllers = [
 		AnchorDemoViewController(),
-		GridDemoViewController()
+		GridDemoViewController(),
+		SidebarDemoViewController()
 	]
 	
 	private var selectedViewControllerIndex: Int?

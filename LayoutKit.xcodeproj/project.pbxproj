@@ -45,6 +45,7 @@
 		7A96E7E81C6931ED0076CC34 /* DemoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A96E7E71C6931ED0076CC34 /* DemoGalleryViewController.swift */; };
 		7A96E7EA1C6931ED0076CC34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A96E7E91C6931ED0076CC34 /* Assets.xcassets */; };
 		7A96E7ED1C6931ED0076CC34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A96E7EB1C6931ED0076CC34 /* Main.storyboard */; };
+		7AC81FFC1C6D7DEF00A2B947 /* SidebarDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC81FFA1C6D7C6800A2B947 /* SidebarDemoViewController.swift */; };
 		7ACE2F911C62886E00C431DF /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8C1C62886E00C431DF /* CGRect.swift */; };
 		7ACE2F921C62886E00C431DF /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8D1C62886E00C431DF /* CGSize.swift */; };
 		7ACE2F931C62886E00C431DF /* LayoutEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE2F8E1C62886E00C431DF /* LayoutEdge.swift */; };
@@ -125,6 +126,7 @@
 		7A96E7E91C6931ED0076CC34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A96E7EC1C6931ED0076CC34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A96E7EE1C6931ED0076CC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AC81FFA1C6D7C6800A2B947 /* SidebarDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarDemoViewController.swift; sourceTree = "<group>"; };
 		7ACE2F8C1C62886E00C431DF /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		7ACE2F8D1C62886E00C431DF /* CGSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 		7ACE2F8E1C62886E00C431DF /* LayoutEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEdge.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				7A96E7EE1C6931ED0076CC34 /* Info.plist */,
 				7A96E7EB1C6931ED0076CC34 /* Main.storyboard */,
 				7A0B724F1C695D51000CF609 /* ModernViewController.swift */,
+				7AC81FFA1C6D7C6800A2B947 /* SidebarDemoViewController.swift */,
 				7A0B71FC1C6948B6000CF609 /* WindowController.swift */,
 			);
 			path = Demo;
@@ -557,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AC81FFC1C6D7DEF00A2B947 /* SidebarDemoViewController.swift in Sources */,
 				7A0B72691C6AD029000CF609 /* GridDemoViewController.swift in Sources */,
 				7A96E7E81C6931ED0076CC34 /* DemoGalleryViewController.swift in Sources */,
 				7A0B71FE1C6949AD000CF609 /* WindowController.swift in Sources */,
