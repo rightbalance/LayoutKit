@@ -169,38 +169,12 @@ extension CollectionType where Index == Int, Generator.Element == LayoutType {
 	/// - REQUIRES: All layouts have the same non-nil superlayout.
 	///
 	public func distributeInSuperlayout(axis axis: LayoutAxis, spacing: CGFloat = 0.0, insets: LayoutInsets = LayoutInsets()) {
-		guard let first = first else { return }
-		
-		guard let superlayout = first.superlayout else {
-			fatalError("Tried to distribute a list of layouts in their superlayout, but a superlayout was not found.")
-		}
-		
-		for layout in self {
-			assert(layout.superlayout === superlayout, "Tried to distribute a list of layouts in their superlayout, but their superlayouts did not match.")
-		}
-		
-		distributeIn(superlayout.bounds, axis: axis, spacing: spacing, insets: insets)
+		map({ ($0, .Weight(1.0)) }).distributeInSuperlayout(axis: axis, spacing: spacing, insets: insets)
 	}
 	
 	/// Distributes the layouts equally along an axis within the given rect.
 	public func distributeIn(rect: CGRect, axis primaryAxis: LayoutAxis, spacing: CGFloat = 0.0, insets: LayoutInsets = LayoutInsets()) {
-		let count = self.count
-		
-		guard count > 0 else { return }
-		
-		let secondaryAxis = primaryAxis.perpendicularAxis
-		let totalSpacing  = spacing * CGFloat(count - 1)
-		
-		var frame                    = CGRect(origin: rect.origin)
-		frame.origin[primaryAxis]   += insets[primaryAxis.minEdge]
-		frame.origin[secondaryAxis] += insets[secondaryAxis.minEdge]
-		frame.size[primaryAxis]      = (rect.size[primaryAxis] - insets[primaryAxis] - totalSpacing) / CGFloat(count)
-		frame.size[secondaryAxis]    = rect.size[secondaryAxis] - insets[secondaryAxis]
-		
-		for index in startIndex ..< endIndex {
-			self[index].frame          = frame
-			frame.origin[primaryAxis] += frame.size[primaryAxis] + spacing
-		}
+		map({ ($0, .Weight(1.0)) }).distributeIn(rect, axis: primaryAxis, spacing: spacing, insets: insets)
 	}
 }
 
@@ -233,6 +207,73 @@ extension CollectionType where Index == Int, Generator.Element == (LayoutType?, 
 	
 	/// Distributes the layouts with the given constraints along an axis within the given rect.
 	public func distributeIn(rect: CGRect, axis primaryAxis: LayoutAxis, spacing: CGFloat = 0.0, insets: LayoutInsets = LayoutInsets()) {
-		fatalError("Not implemented yet.")
+		// There are lots of potential improvements in this implementation.
+		
+		let insetRect     = rect.insetBy(insets)
+		let secondaryAxis = primaryAxis.perpendicularAxis
+		let totalSpacing  = spacing * CGFloat(count - 1)
+		
+		let (totalConstantLength, totalWeight, totalUncappedWeight) = reduce((CGFloat(0.0), CGFloat(0.0), CGFloat(0.0))) {
+			switch $1.1 {
+				case .Amount       (let amount):       return ($0.0 + amount, $0.1,          $0.2)
+				case .Weight       (let weight):       return ($0.0,          $0.1 + weight, $0.2 + weight)
+				case .CappedWeight (let weight, _, _): return ($0.0,          $0.1 + weight, $0.2)
+			}
+		}
+		
+		let flexibleLength = insetRect.size[primaryAxis] - totalSpacing - totalConstantLength
+		var leftoverLength = CGFloat(0.0)
+		
+		var layoutFrame                 = CGRect(origin: insetRect.origin)
+		layoutFrame.size[secondaryAxis] = insetRect.size[secondaryAxis]
+		
+		for index in startIndex ..< endIndex {
+			switch self[index].1 {
+				case .Amount(let amount): layoutFrame.size[primaryAxis] = amount
+				case .Weight(let weight): layoutFrame.size[primaryAxis] = flexibleLength * (weight / totalWeight)
+				
+				case .CappedWeight(let weight, let min, let max): do {
+					var length = flexibleLength * (weight / totalWeight)
+					
+					if let min = min where length < min {
+						leftoverLength -= min - length
+						length          = min
+					}
+					
+					if let max = max where length > max {
+						leftoverLength += length - max
+						length          = max
+					}
+					
+					layoutFrame.size[primaryAxis] = length
+				}
+			}
+			
+			self[index].0?.frame             = layoutFrame
+			layoutFrame.origin[primaryAxis] += layoutFrame.size[primaryAxis] + spacing
+		}
+		
+		if leftoverLength != 0.0 {
+			precondition(totalUncappedWeight != 0.0, "Tried to distribute layouts with capped weights, but there were no layouts with uncapped weights to distribute the leftover space to.")
+			
+			var distributedLeftoverLength   = CGFloat(0.0)
+			layoutFrame.origin[primaryAxis] = insetRect.origin[primaryAxis]
+			
+			for index in startIndex ..< endIndex {
+				if distributedLeftoverLength != 0.0 {
+					self[index].0?.frame.origin[primaryAxis] += distributedLeftoverLength
+				}
+				
+				switch self[index].1 {
+					case .Amount(_), .CappedWeight(_): break
+					
+					case .Weight(let weight): do {
+						let lengthToDistribute                  = leftoverLength * (weight / totalUncappedWeight)
+						self[index].0?.frame.size[primaryAxis] += lengthToDistribute
+						distributedLeftoverLength              += lengthToDistribute
+					}
+				}
+			}
+		}
 	}
 }

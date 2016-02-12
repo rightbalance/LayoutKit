@@ -1,6 +1,7 @@
+import CoreGraphics
+
 public enum LayoutConstraint {
-	case Amount(Double)
-	case Weight(Double)
-	case Range(min: Double, max: Double)
-	case CappedWeight(weight: Double, min: Double?, max: Double?)
+	case Amount(CGFloat)
+	case Weight(CGFloat)
+	case CappedWeight(weight: CGFloat, min: CGFloat?, max: CGFloat?)
 }
